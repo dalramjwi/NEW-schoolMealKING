@@ -1,0 +1,16 @@
+#root {
+  background-color: aquamarine;
+  height: 50vh;
+  margin-top: 20vh;
+}
+#rootText {
+  display: none;
+  position: relative;
+  background-color: whitesmoke;
+  width: 80vw;
+  height: 40vh;
+}
+#buttonForm {
+  position: relative;
+  top: 130%;
+}
