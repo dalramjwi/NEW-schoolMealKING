@@ -11,7 +11,6 @@ const template = {
     );
   },
 };
-
 // export한 데이터 받아오는 명령어
 //? const template = require("./literalTemplate");
 module.exports = template;
