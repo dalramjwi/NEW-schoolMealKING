@@ -10,6 +10,13 @@ const template = {
       endTemplate.baseEnd("index")
     );
   },
+  cafeTemplate: function () {
+    return (
+      topTemplate.baseTop("menu") +
+      mainTemplate.root("menu1", "menu2") +
+      endTemplate.baseEnd("menu")
+    );
+  },
 };
 // export한 데이터 받아오는 명령어
 //? const template = require("./literalTemplate");
