@@ -1,3 +1,8 @@
+/**
+ * 버튼 만드는 함수
+ * @param {string} type button type
+ * @param {string} write button text
+ */
 export const buttonSet = function buttonSet(type, write) {
   const button = document.createElement("button");
   button.setAttribute("type", type);
