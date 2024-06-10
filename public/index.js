@@ -1,4 +1,4 @@
-import { formSet3 } from "./formSet3.js";
+import { formSet3 } from "./js_module/formSet3";
 // const button = buttonSet("submit", "진행하기");
 const root = document.getElementById("root");
 const rOne = document.getElementById("rOne");
