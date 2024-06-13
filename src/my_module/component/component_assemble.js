@@ -1,6 +1,6 @@
-const m = require("../../module_assemble");
+const makeComponent = require("./makeComponent");
 
-console.log(m.makeComponent);
+console.log(makeComponent.body("ASd"));
 // const ca = {
 //   // mainPartBody: m.makeComponent.root(rootBodyContent()),
 //   mainBody: m.makeComponent.body("mainPartBody"),
