@@ -4,7 +4,7 @@ const endTemplate = {
    * @param {string} name 삽입할 js 이름
    */
   baseEnd: function (name) {
-    return `</body>
+    return `
   <script type="module" src="./${name}.js"></script>
             </html>`;
   },
