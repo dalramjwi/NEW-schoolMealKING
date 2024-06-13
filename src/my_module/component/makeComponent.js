@@ -1,5 +1,5 @@
-const m = require("../../module_assemble.js");
-const componentAssemble = {
+const m = require("../../module_assemble");
+const makeComponent = {
   body: (bodyContent) => {
     return m.tagMaker("body", bodyContent);
   },
@@ -11,12 +11,7 @@ const componentAssemble = {
   rootBodyContent: () => {
     const page = m.tagIdMaker("div", "page");
     const letter = m.tagIdMaker("div", "letter", page);
-    return componentAssemble.line + letter + componentAssemble.bLine;
+    return makeComponent.line + letter + makeComponent.bLine;
   },
-  // mainPartBody: root(rootBodyContent()),
-  // mainBody: body("mainPartBody"),
 };
-const mainPartBody = componentAssemble.root(
-  componentAssemble.rootBodyContent()
-);
-console.log(mainPartBody);
+module.exports = makeComponent;
