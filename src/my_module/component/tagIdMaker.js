@@ -8,6 +8,3 @@
 const tagMaker = function (tagName, content, tagId) {
   return `<${tagName} id = "${tagId}">${content}</${tagName}>`;
 };
-test = tagMaker("div", "안녕", "12");
-
-console.log(test);
