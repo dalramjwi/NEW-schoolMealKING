@@ -1,18 +1,18 @@
 const topTemplate = {
   /**
    * 기본 html top
+   * @param {string} title title name
    * @param {string} name 삽입할 css 이름
    */
-  baseTop: function (name) {
+  baseTop: function (title, name) {
     return `<!DOCTYPE html>
     <html lang="ko">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sorock</title>
+        <title>${title}</title>
         <link rel="stylesheet" href="./${name}.css">
       </head>
-      <body>
       `;
   },
   /**
