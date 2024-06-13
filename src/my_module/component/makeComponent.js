@@ -15,3 +15,5 @@ const makeComponent = {
   },
 };
 module.exports = makeComponent;
+
+console.log(makeComponent.root("Asd"));
