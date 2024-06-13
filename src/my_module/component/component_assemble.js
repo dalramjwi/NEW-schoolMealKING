@@ -1,6 +1,6 @@
 const m = require("../../module_assemble");
-const makeComponent = require("./makeComponent");
 
+console.log(m.makeComponent);
 // const ca = {
 //   // mainPartBody: m.makeComponent.root(rootBodyContent()),
 //   mainBody: m.makeComponent.body("mainPartBody"),
@@ -8,4 +8,3 @@ const makeComponent = require("./makeComponent");
 // };
 // // module.exports = ca;
 // console.log(ca.mainBody);
-console.log(makeComponent);

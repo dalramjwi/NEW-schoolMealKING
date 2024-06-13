@@ -14,6 +14,7 @@ const makeComponent = {
     return makeComponent.line + letter + makeComponent.bLine;
   },
 };
+const bodyContent = makeComponent.root(makeComponent.rootBodyContent());
+const body = makeComponent.body(bodyContent);
+console.log(body);
 module.exports = makeComponent;
-
-console.log(makeComponent.root("Asd"));
