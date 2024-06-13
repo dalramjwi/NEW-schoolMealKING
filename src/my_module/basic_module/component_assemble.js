@@ -1,4 +1,4 @@
 const m = require("../../module_assemble.js");
 const componentAssemble = {
-  mainbody: m.tagMaker("body", content),
+  body: m.tagMaker("body", content),
 };
