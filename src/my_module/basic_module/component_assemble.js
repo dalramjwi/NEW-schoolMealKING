@@ -4,9 +4,10 @@ const componentAssemble = {
     return m.tagMaker("body", bodyContent);
   },
   root: (rootContent) => {
-    return m.tagIdMaker("div", rootContent, "root");
+    return m.tagIdMaker("div", "root", rootContent);
   },
-  line: m.tagIdMaker("div", "", "line"),
+  line: m.tagIdMaker("div", "line"),
+  bLine: m.tagIdMaker("div", "bLine"),
   rootBodyContent: () => {},
   mainPartBody: root(rootBodyContent()),
   mainBody: body(mainPartBody),
