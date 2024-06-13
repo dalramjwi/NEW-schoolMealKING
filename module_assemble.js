@@ -1,3 +1,5 @@
-const path = require("path");
+const modules = {
+  path: require("path"),
+};
 
-module.exports = { path };
+module.exports = modules;
