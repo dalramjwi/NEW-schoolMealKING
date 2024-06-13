@@ -1,5 +1,5 @@
 const express = require("express");
-const m = require("./module_assemble.js");
+const m = require("./src/module_assemble.js");
 const app = express();
 const port = process.env.PORT || 3000;
 app.get("/", function (req, res) {
