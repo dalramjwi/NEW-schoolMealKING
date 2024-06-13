@@ -1,9 +1,12 @@
 const m = require("../../module_assemble.js");
 const componentAssemble = {
   body: (bodyContent) => {
-    m.tagMaker("body", bodyContent);
+    return m.tagMaker("body", bodyContent);
   },
   root: (rootContent) => {
-    m.tagIdMaker("div", rootContent, "root");
+    return m.tagIdMaker("div", rootContent, "root");
   },
+  rootBodyContent: () => {},
+  mainPartBody: root(rootBodyContent()),
+  mainBody: body(mainPartBody),
 };
