@@ -11,9 +11,12 @@ const componentAssemble = {
   rootBodyContent: () => {
     const page = m.tagIdMaker("div", "page");
     const letter = m.tagIdMaker("div", "letter", page);
-    return line + letter + bLine;
+    return componentAssemble.line + letter + componentAssemble.bLine;
   },
-  mainPartBody: root(rootBodyContent()),
-  mainBody: body(mainPartBody),
+  // mainPartBody: root(rootBodyContent()),
+  // mainBody: body("mainPartBody"),
 };
-console.log(componentAssemble.mainBody);
+const mainPartBody = componentAssemble.root(
+  componentAssemble.rootBodyContent()
+);
+console.log(mainPartBody);
