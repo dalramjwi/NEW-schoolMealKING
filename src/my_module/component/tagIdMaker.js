@@ -8,3 +8,4 @@
 const tagMaker = function (tagName, content, tagId) {
   return `<${tagName} id = "${tagId}">${content}</${tagName}>`;
 };
+module.exports = tagMaker;
