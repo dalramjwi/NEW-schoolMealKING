@@ -7,3 +7,4 @@
 const tagMaker = function (tagName, content) {
   return `<${tagName}>${content}</${tagName}>`;
 };
+module.exports = tagMaker;
