@@ -6,6 +6,7 @@ const componentAssemble = {
   root: (rootContent) => {
     return m.tagIdMaker("div", rootContent, "root");
   },
+  line: m.tagIdMaker("div", "", "line"),
   rootBodyContent: () => {},
   mainPartBody: root(rootBodyContent()),
   mainBody: body(mainPartBody),
