@@ -6,12 +6,12 @@ const makeComponent = {
   root: (rootContent) => {
     return m.tagIdMaker("div", "root", rootContent);
   },
-  line: m.tagIdMaker("div", "line"),
-  bLine: m.tagIdMaker("div", "bLine"),
   rootBodyContent: () => {
+    const line = m.tagIdMaker("div", "line");
+    const bLine = m.tagIdMaker("div", "bLine");
     const page = m.tagIdMaker("div", "page");
     const letter = m.tagIdMaker("div", "letter", page);
-    return makeComponent.line + letter + makeComponent.bLine;
+    return line + letter + bLine;
   },
 };
 module.exports = makeComponent;

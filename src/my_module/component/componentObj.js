@@ -10,4 +10,3 @@ const componentWork = () => {
 };
 
 module.exports = componentWork;
-// console.log(componentObj.mainBody);
