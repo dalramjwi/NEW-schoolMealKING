@@ -5,7 +5,7 @@
  * @param {string} tagId tag의 id
  * @returns <${tagName} id = "${tagId}">${content}</${tagName}>
  */
-const tagMaker = function (tagName, content, tagId) {
+const tagIdMaker = function (tagName, content, tagId) {
   return `<${tagName} id = "${tagId}">${content}</${tagName}>`;
 };
-module.exports = tagMaker;
+module.exports = tagIdMaker;
