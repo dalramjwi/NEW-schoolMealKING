@@ -1,6 +1,7 @@
 const topTemplate = {
   /**
    * 기본 html top
+   * <html>, <head></head>
    * @param {string} title title name
    * @param {string} name 삽입할 css 이름
    */
