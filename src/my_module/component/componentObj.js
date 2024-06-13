@@ -1,11 +1,13 @@
 const makeComponent = require("./makeComponent");
-
-const componentpart = {
-  mainPartBody: makeComponent.root(makeComponent.rootBodyContent()),
+const componentWork = () => {
+  const componentpart = {
+    mainPartBody: makeComponent.root(makeComponent.rootBodyContent()),
+  };
+  const componentObj = {
+    mainBody: makeComponent.body(componentpart.mainPartBody),
+  };
+  return componentObj;
 };
 
-const componentObj = {
-  mainBody: makeComponent.body(componentpart.mainPartBody),
-};
-
-module.exports = componentObj;
+module.exports = componentWork;
+// console.log(componentObj.mainBody);

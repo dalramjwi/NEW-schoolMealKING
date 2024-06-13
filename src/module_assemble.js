@@ -3,8 +3,8 @@
  */
 const modules = {
   path: require("path"),
-  tagIdMaker: require("./my_module/component/tagIdMaker"),
   tagMaker: require("./my_module/component/tagMaker"),
+  tagIdMaker: require("./my_module/component/tagIdMaker"),
   componentObj: require("./my_module/component/componentObj"),
   top: require("./my_module/basic_module/literalParts/top"),
   end: require("./my_module/basic_module/literalParts/end"),
