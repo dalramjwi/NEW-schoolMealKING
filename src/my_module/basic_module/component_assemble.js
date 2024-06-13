@@ -8,7 +8,12 @@ const componentAssemble = {
   },
   line: m.tagIdMaker("div", "line"),
   bLine: m.tagIdMaker("div", "bLine"),
-  rootBodyContent: () => {},
+  rootBodyContent: () => {
+    const page = m.tagIdMaker("div", "page");
+    const letter = m.tagIdMaker("div", "letter", page);
+    return line + letter + bLine;
+  },
   mainPartBody: root(rootBodyContent()),
   mainBody: body(mainPartBody),
 };
+console.log(componentAssemble.mainBody);
