@@ -4,7 +4,6 @@
  * @param {string} content content 부분의 text
  * @returns <${tagName}>${content}</${tagName}>
  */
-const tagMaker = function (tagName, content) {
+export const tagMaker = function (tagName, content) {
   return `<${tagName}>${content}</${tagName}>`;
 };
-module.exports = tagMaker;
