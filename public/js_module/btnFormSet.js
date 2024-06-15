@@ -5,11 +5,11 @@ import { buttonSet } from "./buttonSet.js";
  * @param {array} buttonData ["submit", "text"];
  * @returns button이 삽입되어 있는 form
  */
-export const formSet3 = function formSet(formData, buttonData) {
+export const btnFormSet = function (formData, buttonData) {
   const form = document.createElement("form");
   form.setAttribute("action", formData[0]);
   form.setAttribute("method", formData[1]);
-  form.id = "buttonForm";
+  form.id = "btnForm";
   form.appendChild(buttonSet(buttonData[0], buttonData[1]));
   formData[2].appendChild(form);
   return form;
