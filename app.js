@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 app.get("/", function (req, res) {
   res.send(m.componentAssemble.main);
 });
-app.use(function (err, req, res) {
+app.use(function (err, req, res, next) {
   res.send("Error EXist");
 });
 app.listen(port, () => console.log(`http://localhost:${port}`));
