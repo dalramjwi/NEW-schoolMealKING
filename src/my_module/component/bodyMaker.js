@@ -7,6 +7,6 @@ function bodyMaker(content) {
   return `<body>${content}</body>`;
 }
 const body = {
-  mainBody: bodyMaker(divMaker.root(divMaker.mainRootContent)),
+  mainBody: bodyMaker(divMaker.root(divMaker.mainRootContent())),
 };
 console.log(body.mainBody);
