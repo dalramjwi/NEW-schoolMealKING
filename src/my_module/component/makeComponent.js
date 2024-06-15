@@ -1,7 +1,7 @@
-import { tagMaker } from "./tagMaker";
+const m = require("../../module_assemble");
 const makeComponent = {
   body: (bodyContent) => {
-    return tagMaker("body", bodyContent);
+    return m.tagMaker("body", bodyContent);
   },
   // root: (rootContent) => {
   //   return m.tagIdMaker("div", "root", rootContent);
@@ -14,5 +14,4 @@ const makeComponent = {
   //   return line + letter + bLine;
   // },
 };
-// module.exports = makeComponent;
-console.log(makeComponent.body("as"));
+module.exports = makeComponent;
