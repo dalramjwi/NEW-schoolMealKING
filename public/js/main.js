@@ -6,3 +6,6 @@ const letter = document.getElementById("letter");
 const page = document.getElementById("page");
 const bLine = document.getElementById("bLine");
 tagIdMaker("div", "text");
+letter.addEventListener("click", () => {
+  letter.style.backgroundColor = "red";
+});

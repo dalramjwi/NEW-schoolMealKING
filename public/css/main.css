@@ -1,8 +1,17 @@
 #root {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vw;
 }
 #line {
   background-color: black;
   width: 100vw;
   height: 2vh;
+}
+#letter {
+  width: 80vw;
+  height: 60vh;
+  background-color: darkgrey;
 }
