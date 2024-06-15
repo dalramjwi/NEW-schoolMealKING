@@ -9,4 +9,4 @@ function bodyMaker(content) {
 const body = {
   mainBody: bodyMaker(divMaker.root(divMaker.mainRootContent())),
 };
-console.log(body.mainBody);
+module.exports = body;
