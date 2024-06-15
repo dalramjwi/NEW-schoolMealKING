@@ -7,4 +7,4 @@ const componentAssemble = {
     body.mainBody +
     end.baseEnd("public/js/main"),
 };
-console.log(componentAssemble.main);
+module.exports = componentAssemble;
