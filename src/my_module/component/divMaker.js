@@ -14,4 +14,3 @@ const divMaker = {
   },
 };
 module.exports = divMaker;
-console.log(divMaker.root(divMaker.mainRootContent()));
