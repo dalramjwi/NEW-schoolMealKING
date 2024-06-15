@@ -1,5 +1,5 @@
 //모듈 호출
-import { tagIdMaker } from "../js_module/tagIdComponent";
+import { tagIdMaker } from "../js_module/tagIdComponent.js";
 //div id, 변수 할당
 const line = document.getElementById("line");
 const letter = document.getElementById("letter");
