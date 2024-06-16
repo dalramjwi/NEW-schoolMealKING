@@ -2,6 +2,7 @@
 import { tagIdMaker } from "../js_module/tagIdComponent.js";
 import { btnFormSet } from "../js_module/btnFormSet.js";
 import { gridSet } from "../js_module/gridSet.js";
+import { menuData } from "../data/menuData.js";
 //div id, 변수 할당
 const line = document.getElementById("line");
 const graph = document.getElementById("graph");
@@ -19,3 +20,4 @@ const app = () => {
   menu.innerHTML = gridSet(6, 3, "내용2").join("");
 };
 app();
+console.log(menuData.date(7, 2));
