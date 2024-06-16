@@ -67,4 +67,8 @@ app();
 // 선택된 메뉴를 담을 배열
 let selectedMenus = [];
 // 체크박스 클릭 이벤트
-menu.addEventListener("click", (event) => {});
+menu.addEventListener("click", (event) => {
+  if (event.target.type === "checkbox") {
+    const checkbox = event.target;
+  }
+});
