@@ -86,6 +86,6 @@ function updateMenu(col) {
   const titleNum = parseInt(title.replace(/\D/g, ""));
   console.log(titleNum);
   if (titleNum) {
-    const divs = [number + col, number + col * 2, number + col * 3];
+    const divs = [col, col * 2, col * 3];
   }
 }
