@@ -59,6 +59,7 @@ const menumap = gridSet(5, 3).map((item, index) => {
 
   return createMenuCase(index);
 });
+//실행 - 기본 component 생성
 const app = () => {
   day.innerHTML = daymap.join("");
   menu.innerHTML = menuName.join("") + menumap.join("");
