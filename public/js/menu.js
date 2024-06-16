@@ -86,8 +86,10 @@ function updateMenu(col) {
   const titleNum = parseInt(title.replace(/\D/g, ""));
   console.log(titleNum);
   if (titleNum) {
-    const divs = [col, col * 2, col * 3];
-    const div = document.getElementById(`${divs[0]}`);
-    console.log(div);
+    const divs = [titleNum + col, titleNum + col * 2, titleNum + col * 3];
+    const divOne = document.getElementById(`${divs[0]}`);
+    const divTwo = document.getElementById(`${divs[1]}`);
+    const divThree = document.getElementById(`${divs[2]}`);
+    console.log(divTwo);
   }
 }
