@@ -11,4 +11,32 @@ export const gridTextSet = {
       return item;
     }
   }),
+  //menu 내용 삽입
+  menumap: gridSet(5, 3).map((item, index) => {
+    // 각각의 menu 항목에 대해 case를 생성하는 함수
+    const createMenuCase = (index) => {
+      let key;
+      switch (index % 3) {
+        case 0:
+          key = "han";
+          break;
+        case 1:
+          key = "yang";
+          break;
+        case 2:
+          key = "hoo";
+          break;
+      }
+      const menuIndex = Math.floor(index / 3);
+      const checkboxLabel = `
+    <label for="${menuData.idArr[index]}">
+      <input type="checkbox" name="${menuData.idArr[index]}" value="${menuData.menu[key][menuIndex]}" id="${menuData.idArr[index]}">
+      ${menuData.menu[key][menuIndex]}
+    </label>
+  `;
+      return checkboxLabel;
+    };
+
+    return createMenuCase(index);
+  }),
 };
