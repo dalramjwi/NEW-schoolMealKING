@@ -26,7 +26,8 @@ const divMaker = {
   menuRootContent: () => {
     const day = tagIdMaker("div", "day");
     const menu = tagIdMaker("div", "menu");
-    const graph = tagIdMaker("div", "graph", day, menu);
+    const dayAndMenu = day + menu;
+    const graph = tagIdMaker("div", "graph", dayAndMenu);
     return graph;
   },
 };
