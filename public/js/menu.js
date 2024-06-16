@@ -13,6 +13,7 @@ let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
 
 const app = () => {
-  day.innerHTML = gridSet(4, 5, "내용").join("");
+  day.innerHTML = gridSet(4, 7, "내용1").join("");
+  menu.innerHTML = gridSet(6, 3, "내용2").join("");
 };
 app();
