@@ -72,14 +72,14 @@ menu.addEventListener("click", (event) => {
     const checkbox = event.target;
     if (checkbox.checked) {
       selectedMenus.push(checkbox.value);
+      if (selectedMenus.length > 3) {
+        checkbox.checked = false;
+        selectedMenus = selectedMenus.filter((item) => item !== checkbox.value);
+        alert("최대 3개까지만 선택할 수 있습니다.");
+        return;
+      }
     } else {
       selectedMenus = selectedMenus.filter((item) => item !== checkbox.value);
-    }
-    if (checkbox.checked && selectedMenus.length > 3) {
-      checkbox.checked = false;
-      selectedMenus = selectedMenus.filter((item) => item !== checkbox.value);
-      alert("최대 3개까지만 선택할 수 있습니다.");
-      return;
     }
     console.log("선택된 메뉴 : ", selectedMenus);
     updateMenu(7);
