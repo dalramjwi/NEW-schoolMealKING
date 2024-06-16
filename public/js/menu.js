@@ -73,6 +73,7 @@ menu.addEventListener("click", (event) => {
     if (checkbox.checked) {
       selectedMenus.push(checkbox.value);
     } else {
+      selectedMenus = selectedMenus.filter((item) => item !== checkbox.value);
     }
 
     console.log("선택된 메뉴 : ", selectedMenus);
