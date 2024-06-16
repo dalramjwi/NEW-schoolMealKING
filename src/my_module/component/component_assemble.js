@@ -6,5 +6,9 @@ const componentAssemble = {
     top.baseTop("main", "public/css/main") +
     body.mainBody +
     end.baseEnd("public/js/main"),
+  menu:
+    top.baseTop("menu", "public/css/menu") +
+    body.menuBody +
+    end.baseEnd("public/js/menu"),
 };
 module.exports = componentAssemble;
