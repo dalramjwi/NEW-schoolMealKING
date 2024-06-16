@@ -92,6 +92,10 @@ function updateMenu(col) {
     const divThree = document.getElementById(`${divs[2]}`);
     if (divOne) {
       divOne.innerHTML = selectedMenus[0] || "";
+    } else if (divTwo) {
+      divTwo.innerHTML = selectedMenus[1] || "";
+    } else if (divThree) {
+      divThree.innerHTML = selectedMenus[2] || "";
     }
   }
 }
