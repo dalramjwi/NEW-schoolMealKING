@@ -17,7 +17,7 @@ btnFormSet(formData, buttonData);
 //day와 menu에 div 만들기
 const dayDiv = gridSet(4, 7).join("");
 const menuDiv = gridSet(6, 3).join("");
-//만들어진 div 특정 text 삽입
+//만들어진 div 특정 text 삽입 - day
 const daymap = gridSet(4, 7).map((item, index) => {
   if (index < 7) {
     return tagIdMaker("div", index, menuData.date(7, 2)[index]);
@@ -25,8 +25,19 @@ const daymap = gridSet(4, 7).map((item, index) => {
     return item;
   }
 });
-
+//만들어진 div 특정 text 삽입 - menu
+const menumap = gridSet(6, 3).map((item, index) => {
+  if (index === 0) {
+    return tagIdMaker("div", index, menuData.menu.han[0]);
+  } else if (index === 1) {
+    return tagIdMaker("div", index, menuData.menu.yang[0]);
+  } else if (index === 2) {
+    return tagIdMaker("div", index, menuData.menu.hoo[0]);
+  }
+});
+console.log(menumap);
 const app = () => {
   day.innerHTML = daymap.join("");
+  menu.innerHTML = menuDiv;
 };
 app();
