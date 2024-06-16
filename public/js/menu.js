@@ -70,5 +70,11 @@ let selectedMenus = [];
 menu.addEventListener("click", (event) => {
   if (event.target.type === "checkbox") {
     const checkbox = event.target;
+    if (checkbox.checked) {
+      selectedMenus.push(checkbox.value);
+    } else {
+    }
+
+    console.log("선택된 메뉴 : ", selectedMenus);
   }
 });
