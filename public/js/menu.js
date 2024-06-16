@@ -25,8 +25,15 @@ const daymap = gridSet(4, 7).map((item, index) => {
     return item;
   }
 });
-//만들어진 div 특정 text 삽입 - menu
-const menumap = gridSet(6, 3).map((item, index) => {
+//menu 제목 삽입
+const menuarr = ["한", "양", "후"];
+const menuName = [];
+for (let i = 0; i < 3; i++) {
+  menuName.push(tagIdMaker("div", `${menuarr[i]}식`, `${menuarr[i]}식`));
+}
+console.log(menuName.join(""));
+//menu 내용 삽입
+const menumap = gridSet(5, 3).map((item, index) => {
   // 각각의 menu 항목에 대해 case를 생성하는 함수
   const createMenuCase = (index) => {
     let key;
@@ -55,6 +62,6 @@ const menumap = gridSet(6, 3).map((item, index) => {
 });
 const app = () => {
   day.innerHTML = daymap.join("");
-  menu.innerHTML = menumap.join("");
+  menu.innerHTML = menuName.join("") + menumap.join("");
 };
 app();
