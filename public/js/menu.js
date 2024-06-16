@@ -11,6 +11,7 @@ const menu = document.getElementById("menu");
 const bLine = document.getElementById("bLine");
 
 //기본 실행 DOMAPI 조작
+
 //btn 만들기
 let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
