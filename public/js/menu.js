@@ -10,3 +10,9 @@ const bLine = document.getElementById("bLine");
 
 let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
+function gridMake(row, col) {
+  for (let i = 0; i < row * col; i++) {
+    return tagIdMaker("div", `${i}`, "내용");
+  }
+}
+console.log(gridMake(4, 7));
