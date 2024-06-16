@@ -19,5 +19,10 @@ const divMaker = {
     const letter = tagIdMaker("div", "letter", page);
     return divMaker.line + letter + divMaker.bLine;
   },
+  //별개 HTML 부분
+  /**
+   * menu의 root에 들어갈 내용의 함수
+   */
+  menuRootContent: () => {},
 };
 module.exports = divMaker;
