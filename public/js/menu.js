@@ -18,7 +18,7 @@ btnFormSet(formData, buttonData);
 const dayDiv = gridSet(4, 7).join("");
 const menuDiv = gridSet(6, 3).join("");
 //만들어진 div 특정 text 삽입
-const mapex = gridSet(4, 7).map((item, index) => {
+const daymap = gridSet(4, 7).map((item, index) => {
   if (index < 7) {
     return tagIdMaker("div", index, menuData.date(7, 2)[index]);
   } else {
@@ -27,6 +27,6 @@ const mapex = gridSet(4, 7).map((item, index) => {
 });
 
 const app = () => {
-  day.innerHTML = mapex.join("");
+  day.innerHTML = daymap.join("");
 };
 app();
