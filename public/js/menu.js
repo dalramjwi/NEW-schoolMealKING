@@ -77,5 +77,11 @@ menu.addEventListener("click", (event) => {
     }
 
     console.log("선택된 메뉴 : ", selectedMenus);
+    updateMenu();
   }
 });
+//menu 배열을 반영하는 이벤트 함수
+function updateMenu() {
+  const title = document.title;
+  console.log(title);
+}
