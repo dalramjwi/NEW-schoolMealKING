@@ -87,5 +87,7 @@ function updateMenu(col) {
   console.log(titleNum);
   if (titleNum) {
     const divs = [col, col * 2, col * 3];
+    const div = document.getElementById(`${divs[0]}`);
+    console.log(div);
   }
 }
