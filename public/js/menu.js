@@ -15,10 +15,11 @@ let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
 btnFormSet(formData, buttonData);
 //day와 menu에 div 만들기
-const app = () => {
-  day.innerHTML = gridSet(4, 7, "내용1").join("");
-  menu.innerHTML = gridSet(6, 3, "내용2").join("");
-};
+const dayDiv = gridSet(4, 7).join("");
+const menuDiv = gridSet(6, 3).join("");
+//만들어진 div 특정 text 삽입
+console.log(dayDiv);
+const app = () => {};
 app();
 console.log(menuData.date(7, 2));
 console.log(menuData.menu);
