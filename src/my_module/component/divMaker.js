@@ -28,8 +28,7 @@ const divMaker = {
     const menu = tagIdMaker("div", "menu");
     const dayAndMenu = day + menu;
     const graph = tagIdMaker("div", "graph", dayAndMenu);
-    return graph;
+    return divMaker.line + graph + divMaker.bLine;
   },
 };
-console.log(divMaker.menuRootContent());
 module.exports = divMaker;
