@@ -30,7 +30,6 @@ const menuName = [];
 for (let i = 0; i < 3; i++) {
   menuName.push(tagIdMaker("div", `${menuarr[i]}식`, `${menuarr[i]}식`));
 }
-console.log(menuName.join(""));
 //menu 내용 삽입
 const menumap = gridSet(5, 3).map((item, index) => {
   // 각각의 menu 항목에 대해 case를 생성하는 함수
@@ -65,3 +64,7 @@ const app = () => {
   menu.innerHTML = menuName.join("") + menumap.join("");
 };
 app();
+// 선택된 메뉴를 담을 배열
+let selectedMenus = [];
+// 체크박스 클릭 이벤트
+menu.addEventListener("click", (event) => {});
