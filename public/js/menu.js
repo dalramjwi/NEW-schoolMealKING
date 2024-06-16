@@ -33,11 +33,13 @@ const menumap = gridSet(6, 3).map((item, index) => {
     return tagIdMaker("div", index, menuData.menu.yang[0]);
   } else if (index === 2) {
     return tagIdMaker("div", index, menuData.menu.hoo[0]);
+  } else {
+    return tagIdMaker("checkbox", index, menuData.menu.han[index]);
   }
 });
 console.log(menumap);
 const app = () => {
   day.innerHTML = daymap.join("");
-  menu.innerHTML = menuDiv;
+  menu.innerHTML = menumap.join("");
 };
 app();
