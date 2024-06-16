@@ -36,3 +36,11 @@
   width: 90vw;
   height: 45vh;
 }
+#한식,
+#양식,
+#후식 {
+  text-align: center;
+}
+#menu > label {
+  padding-left: 6vw;
+}
