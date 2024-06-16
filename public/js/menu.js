@@ -90,6 +90,8 @@ function updateMenu(col) {
     const divOne = document.getElementById(`${divs[0]}`);
     const divTwo = document.getElementById(`${divs[1]}`);
     const divThree = document.getElementById(`${divs[2]}`);
-    console.log(divTwo);
+    if (divOne) {
+      divOne.innerHTML = selectedMenus[0] || "";
+    }
   }
 }
