@@ -3,6 +3,7 @@ import { tagIdMaker } from "../js_module/tagIdComponent.js";
 import { btnFormSet } from "../js_module/btnFormSet.js";
 import { gridSet } from "../js_module/gridSet.js";
 import { menuData } from "../data/menuData.js";
+import { gridTextSet } from "../js_module/gridTextSet.js";
 //div id, 변수 할당
 const line = document.getElementById("line");
 const graph = document.getElementById("graph");
@@ -18,13 +19,13 @@ let buttonData = ["submit", "진행하기"];
 btnFormSet(formData, buttonData);
 
 //만들어진 div 특정 text 삽입 - day
-const daymap = gridSet(4, 7).map((item, index) => {
-  if (index < 7) {
-    return tagIdMaker("div", index, menuData.date(7, 2)[index]);
-  } else {
-    return item;
-  }
-});
+// const daymap = gridSet(4, 7).map((item, index) => {
+//   if (index < 7) {
+//     return tagIdMaker("div", index, menuData.date(7, 2)[index]);
+//   } else {
+//     return item;
+//   }
+// });
 //menu 제목 삽입
 const menuarr = ["한", "양", "후"];
 const menuName = [];
@@ -61,7 +62,7 @@ const menumap = gridSet(5, 3).map((item, index) => {
 });
 //실행 - 기본 component 생성
 const app = () => {
-  day.innerHTML = daymap.join("");
+  day.innerHTML = gridTextSet.daymap.join("");
   menu.innerHTML = menuName.join("") + menumap.join("");
 };
 app();
