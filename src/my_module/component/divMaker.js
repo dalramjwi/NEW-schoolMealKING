@@ -23,6 +23,12 @@ const divMaker = {
   /**
    * menu의 root에 들어갈 내용의 함수
    */
-  menuRootContent: () => {},
+  menuRootContent: () => {
+    const day = tagIdMaker("div", "day");
+    const menu = tagIdMaker("div", "menu");
+    const graph = tagIdMaker("div", "graph", day, menu);
+    return graph;
+  },
 };
+console.log(divMaker.menuRootContent());
 module.exports = divMaker;
