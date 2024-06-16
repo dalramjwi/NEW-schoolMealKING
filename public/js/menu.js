@@ -9,14 +9,13 @@ const graph = document.getElementById("graph");
 const day = document.getElementById("day");
 const menu = document.getElementById("menu");
 const bLine = document.getElementById("bLine");
+
 //기본 실행 DOMAPI 조작
 //btn 만들기
 let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
 btnFormSet(formData, buttonData);
-//day와 menu에 div 만들기
-const dayDiv = gridSet(4, 7).join("");
-const menuDiv = gridSet(6, 3).join("");
+
 //만들어진 div 특정 text 삽입 - day
 const daymap = gridSet(4, 7).map((item, index) => {
   if (index < 7) {
