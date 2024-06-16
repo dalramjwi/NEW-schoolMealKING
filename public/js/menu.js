@@ -12,7 +12,7 @@ let formData = ["./cafe", "POST", bLine];
 let buttonData = ["submit", "진행하기"];
 const divArr = [];
 function gridMake(row, col) {
-  for (let i = 0; i < row * col; i++) {
+  for (let i = 0; i < 28; i++) {
     divArr.push(tagIdMaker("div", `${i}`, "내용"));
     return divArr;
   }
