@@ -27,33 +27,20 @@ const daymap = gridSet(4, 7).map((item, index) => {
 });
 //만들어진 div 특정 text 삽입 - menu
 const menumap = gridSet(6, 3).map((item, index) => {
-  const cases =(index)=> {
-    0= () => tagIdMaker("div", 0, menuData.menu.han[0]),
-    1= () => tagIdMaker("div", 1, menuData.menu.yang[0]),
-    2=() => tagIdMaker("div", 2, menuData.menu.hoo[0]),
-    han= (index) => {
-      let indexA = index + 3;
-      tagIdMaker("div", indexA, menuData.menu.han[indexA]);
-    },
-    yang= (index) => {
-      let indexA = index + 4;
-      tagIdMaker("div", indexA, menuData.menu.yang[indexA]);
-    },
-    hoo= (index) => {
-      let indexA = index + 5;
-      tagIdMaker("div", indexA, menuData.menu.hoo[indexA]);
-    },
-    
-  };
-  return cases(index);
-  // switch (index) {
-  //   case 0:
-  //     return tagIdMaker("div", index, menuData.menu.han[0]);
-  //   case 1:
-  //     return tagIdMaker("div", index, menuData.menu.yang[0]);
-  //   case 2:
-  //     return tagIdMaker("div", index, menuData.menu.hoo[0]);
-  // }
+  switch (index) {
+    case 0:
+      return tagIdMaker("div", index, menuData.menu.han[0]);
+    case 1:
+      return tagIdMaker("div", index, menuData.menu.yang[0]);
+    case 2:
+      return tagIdMaker("div", index, menuData.menu.hoo[0]);
+    case 3:
+      return tagIdMaker("div", index, menuData.menu.han[1]);
+    case 4:
+      return tagIdMaker("div", index, menuData.menu.yang[1]);
+    case 5:
+      return tagIdMaker("div", index, menuData.menu.hoo[1]);
+  }
   // if (index === 0) {
   //   return tagIdMaker("div", index, menuData.menu.han[0]);
   // } else if (index === 1) {
