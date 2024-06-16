@@ -42,7 +42,13 @@ const menumap = gridSet(6, 3).map((item, index) => {
         break;
     }
     const menuIndex = Math.floor(index / 3);
-    return tagIdMaker("div", index, menuData.menu[key][menuIndex]);
+    const checkboxLabel = `
+    <label for="${menuData.idArr[index]}">
+      <input type="checkbox" name="${menuData.idArr[index]}" value="${menuData.menu[key][menuIndex]}" id="${menuData.idArr[index]}">
+      ${menuData.menu[key][menuIndex]}
+    </label>
+  `;
+    return checkboxLabel;
   };
 
   return createMenuCase(index);
