@@ -21,3 +21,4 @@ const app = () => {
 };
 app();
 console.log(menuData.date(7, 2));
+console.log(menuData.menu);
