@@ -1,4 +1,16 @@
 export const menuData = {
+  /**
+   * @param {number} col grid의 col 수
+   * @param {number} month 해당 설정할 달
+   * @returns 첫 칸은 비어있는 날짜 리터럴 배열
+   */
+  date: (col, month) => {
+    const date = [""];
+    for (let i = 1; i < col; i++) {
+      date.push(`${month}.${i}`);
+    }
+    return date;
+  },
   idArr: [
     "fish",
     "salad",
