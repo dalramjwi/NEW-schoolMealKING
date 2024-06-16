@@ -1,3 +1,5 @@
+import { tagIdMaker } from "../js_module/tagIdComponent.js";
+
 const divArr = [];
 /**
  * @param {number} row grid row 해당하는 숫자
