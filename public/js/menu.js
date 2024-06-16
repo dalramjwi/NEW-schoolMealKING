@@ -27,31 +27,26 @@ const daymap = gridSet(4, 7).map((item, index) => {
 });
 //만들어진 div 특정 text 삽입 - menu
 const menumap = gridSet(6, 3).map((item, index) => {
-  switch (index) {
-    case 0:
-      return tagIdMaker("div", index, menuData.menu.han[0]);
-    case 1:
-      return tagIdMaker("div", index, menuData.menu.yang[0]);
-    case 2:
-      return tagIdMaker("div", index, menuData.menu.hoo[0]);
-    case 3:
-      return tagIdMaker("div", index, menuData.menu.han[1]);
-    case 4:
-      return tagIdMaker("div", index, menuData.menu.yang[1]);
-    case 5:
-      return tagIdMaker("div", index, menuData.menu.hoo[1]);
-  }
-  // if (index === 0) {
-  //   return tagIdMaker("div", index, menuData.menu.han[0]);
-  // } else if (index === 1) {
-  //   return tagIdMaker("div", index, menuData.menu.yang[0]);
-  // } else if (index === 2) {
-  //   return tagIdMaker("div", index, menuData.menu.hoo[0]);
-  // } else {
-  //   return tagIdMaker("checkbox", index, menuData.menu.han[index]);
-  // }
+  // 각각의 menu 항목에 대해 case를 생성하는 함수
+  const createMenuCase = (index) => {
+    let key;
+    switch (index % 3) {
+      case 0:
+        key = "han";
+        break;
+      case 1:
+        key = "yang";
+        break;
+      case 2:
+        key = "hoo";
+        break;
+    }
+    const menuIndex = Math.floor(index / 3);
+    return tagIdMaker("div", index, menuData.menu[key][menuIndex]);
+  };
+
+  return createMenuCase(index);
 });
-console.log(menumap);
 const app = () => {
   day.innerHTML = daymap.join("");
   menu.innerHTML = menumap.join("");
