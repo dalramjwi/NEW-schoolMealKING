@@ -17,6 +17,7 @@ export function checkboxEvent(event) {
     }
     console.log("선택된 메뉴 : ", selectedMenus);
     updateMenu(7);
+    return selectedMenus;
   }
 }
 //menu 배열을 반영하는 이벤트 함수

@@ -9,7 +9,7 @@ const graph = document.getElementById("graph");
 const day = document.getElementById("day");
 const menu = document.getElementById("menu");
 const bLine = document.getElementById("bLine");
-
+const btnForm = document.getElementById("btnForm");
 //기본 실행 DOMAPI 조작
 
 //btn 만들기
@@ -34,5 +34,14 @@ app();
 menu.addEventListener("click", (event) => {
   checkboxEvent(event, () => {
     updateMenu(7);
+    return selectedMenus;
+  });
+});
+//fetch 사용해 서버에 데이터 전송
+bLine.addEventListener("click", (event) => {
+  event.preventDefault();
+  fetch(`http://localhost:3000/menu`, {
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(selectedMenus),
   });
 });
