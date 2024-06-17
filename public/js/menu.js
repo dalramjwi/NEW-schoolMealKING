@@ -2,7 +2,11 @@
 import { tagIdMaker } from "../js_module/tagIdComponent.js";
 import { btnFormSet } from "../js_module/btnFormSet.js";
 import { gridTextSet } from "../js_module/gridTextSet.js";
-import { checkboxEvent, updateMenu } from "./../js_module/checkboxEvent.js";
+import {
+  checkboxEvent,
+  updateMenu,
+  selectedMenus,
+} from "./../js_module/checkboxEvent.js";
 //div id, 변수 할당
 const line = document.getElementById("line");
 const graph = document.getElementById("graph");
@@ -34,14 +38,14 @@ app();
 menu.addEventListener("click", (event) => {
   checkboxEvent(event, () => {
     updateMenu(7);
-    return selectedMenus;
   });
 });
 //fetch 사용해 서버에 데이터 전송
-bLine.addEventListener("click", (event) => {
-  event.preventDefault();
-  fetch(`http://localhost:3000/menu`, {
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(selectedMenus),
-  });
+line.addEventListener("click", (event) => {
+  console.log(selectedMenus);
+  // event.preventDefault();
+  // fetch(`http://localhost:3000/menu`, {
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(selectedMenus),
+  // });
 });

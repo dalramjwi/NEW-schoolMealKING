@@ -1,5 +1,5 @@
 // 선택된 메뉴를 담을 배열
-let selectedMenus = [];
+export let selectedMenus = [];
 // 체크박스 클릭 이벤트
 export function checkboxEvent(event) {
   if (event.target.type === "checkbox") {
