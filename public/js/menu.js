@@ -44,8 +44,19 @@ menu.addEventListener("click", (event) => {
 line.addEventListener("click", (event) => {
   console.log(selectedMenus);
   // event.preventDefault();
-  // fetch(`http://localhost:3000/menu`, {
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(selectedMenus),
-  // });
+  fetch(
+    `/cafe`,
+    {
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(selectedMenus),
+    }
+      .then((response) => response.json())
+      .then(
+        (data) => {
+          document.getElementsByTagName("body")[0].textContent = data;
+          console.log(data);
+        }
+        // (data) => (document.getElementsByTagName("body")[0].textContent = data)
+      )
+  );
 });

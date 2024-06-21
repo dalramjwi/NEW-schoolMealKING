@@ -9,6 +9,9 @@ app.get("/", function (req, res) {
 app.post("/menu", function (req, res) {
   res.send(m.componentAssemble.menu);
 });
+app.post("/cafe", function (req, res) {
+  res.send("asd");
+});
 app.use(function (err, req, res, next) {
   res.send("Error EXist");
 });
