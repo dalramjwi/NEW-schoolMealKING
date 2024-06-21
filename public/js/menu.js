@@ -1,4 +1,3 @@
-//모듈 호출
 import { tagIdMaker } from "../js_module/tagIdComponent.js";
 import { btnFormSet } from "../js_module/btnFormSet.js";
 import { gridTextSet } from "../js_module/gridTextSet.js";
@@ -7,6 +6,8 @@ import {
   updateMenu,
   selectedMenus,
 } from "./../js_module/checkboxEvent.js";
+import { response } from "express";
+// import { json } from "express";
 //div id, 변수 할당
 const line = document.getElementById("line");
 const graph = document.getElementById("graph");
@@ -41,22 +42,20 @@ menu.addEventListener("click", (event) => {
   });
 });
 //fetch 사용해 서버에 데이터 전송
-line.addEventListener("click", (event) => {
+bLine.addEventListener("click", (event) => {
+  const a = json.stringify(selectedMenus);
   console.log(selectedMenus);
   // event.preventDefault();
-  fetch(
-    `/cafe`,
-    {
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selectedMenus),
-    }
-      .then((response) => response.json())
-      .then(
-        (data) => {
-          document.getElementsByTagName("body")[0].textContent = data;
-          console.log(data);
-        }
-        // (data) => (document.getElementsByTagName("body")[0].textContent = data)
-      )
-  );
+  fetch(`/menu`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ a }),
+  }).then((response) => {
+    console.log(response);
+  });
+  // });
+  //   // (data) => (document.getElementsByTagName("body")[0].textContent = data)
+  // )
 });
