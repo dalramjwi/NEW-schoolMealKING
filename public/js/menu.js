@@ -6,8 +6,7 @@ import {
   updateMenu,
   selectedMenus,
 } from "./../js_module/checkboxEvent.js";
-import { response } from "express";
-// import { json } from "express";
+
 //div id, 변수 할당
 const line = document.getElementById("line");
 const graph = document.getElementById("graph");
@@ -42,20 +41,3 @@ menu.addEventListener("click", (event) => {
   });
 });
 //fetch 사용해 서버에 데이터 전송
-bLine.addEventListener("click", (event) => {
-  const a = json.stringify(selectedMenus);
-  console.log(selectedMenus);
-  // event.preventDefault();
-  fetch(`/menu`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ a }),
-  }).then((response) => {
-    console.log(response);
-  });
-  // });
-  //   // (data) => (document.getElementsByTagName("body")[0].textContent = data)
-  // )
-});
