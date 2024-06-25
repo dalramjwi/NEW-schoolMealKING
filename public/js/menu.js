@@ -41,4 +41,12 @@ menu.addEventListener("click", (event) => {
   });
 });
 //fetch 사용해 서버에 데이터 전송
-bLine.addEventListener("click", (event) => {});
+bLine.addEventListener("click", (event) => {
+  fetch("/cafe", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(selectedMenus),
+  });
+});
