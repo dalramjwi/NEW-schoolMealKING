@@ -41,3 +41,4 @@ menu.addEventListener("click", (event) => {
   });
 });
 //fetch 사용해 서버에 데이터 전송
+bLine.addEventListener("click", (event) => {});
