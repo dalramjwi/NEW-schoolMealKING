@@ -30,5 +30,10 @@ const divMaker = {
     const graph = tagIdMaker("div", "graph", dayAndMenu);
     return divMaker.line + graph + divMaker.bLine;
   },
+  cafeRootContent: () => {
+    const show = tagIdMaker("div", "show");
+    const cafeLine = tagIdMaker("div", "line", show);
+    const space = tagIdMaker("div", "space", trio);
+  },
 };
 module.exports = divMaker;
