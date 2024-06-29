@@ -19,5 +19,5 @@ const createDb = (tableName, rowOne, rowTwo, rowThree) => {
 
 const baseCreate = createDb("base", "name", "hpoint", "ypoint");
 const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
-baseCreate();
-activeCreate();
+// baseCreate();
+// activeCreate();
