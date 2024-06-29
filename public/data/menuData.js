@@ -54,4 +54,4 @@ const menuData = {
     return menuArr;
   },
 };
-console.log(menuData.menuValue());
+module.exports = menuData;

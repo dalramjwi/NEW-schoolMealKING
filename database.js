@@ -1,3 +1,4 @@
+const menudata = require("./public/data/menuData.js");
 const database = require("sqlite3").verbose();
 const db = new database.Database(`./database/school.db`, (err) => {
   console.log("에러 발생 : ", err);
@@ -43,5 +44,9 @@ const insertDb = (tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
 
 const baseCreate = createDb("base", "name", "hpoint", "ypoint");
 const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
-// baseCreate();
-// activeCreate();
+baseCreate();
+activeCreate();
+// const insertBaseData = insertDb("base", "김치찌개", 1, 2);
+// insertBaseData();
+// insertActiveData();
+console.log(menudata);
