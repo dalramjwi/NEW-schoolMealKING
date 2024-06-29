@@ -18,19 +18,26 @@ const createDb = (tableName, rowOne, rowTwo, rowThree) => {
 };
 const insertDb = (tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
   return () => {
-    db.run(
-      `INSERT INTO ${tableName} (name, hpoint, ypoint) VALUES (?, ?, ?)`,
-      [rowOneValue, rowTwoValue, rowThreeValue],
-      function (err) {
-        if (err) {
-          console.log("오류 : ", err);
-        } else {
-          console.log(
-            `데이터 삽입됨: ${rowOneValue}, ${rowTwoValue}, ${rowThreeValue}`
-          );
-        }
+    let insertQuery = "";
+    let params = [];
+
+    if (tableName === "base") {
+      insertQuery = `INSERT INTO base (name, hpoint, ypoint) VALUES (?, ?, ?)`;
+      params = [rowOneValue, rowTwoValue, rowThreeValue];
+    } else if (tableName === "active") {
+      insertQuery = `INSERT INTO active (selectName, hpointAll, ypointAll) VALUES (?, ?, ?)`;
+      params = [rowOneValue, rowTwoValue, rowThreeValue];
+    }
+
+    db.run(insertQuery, params, function (err) {
+      if (err) {
+        console.log("오류 : ", err);
+      } else {
+        console.log(
+          `데이터 삽입됨: ${rowOneValue}, ${rowTwoValue}, ${rowThreeValue}`
+        );
       }
-    );
+    });
   };
 };
 
