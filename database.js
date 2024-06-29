@@ -1,5 +1,5 @@
 const database = require("sqlite3").verbose();
-const db = new database.Database("./database/base.db", (err) => {
+const db = new database.Database(`./database/school.db`, (err) => {
   console.log("에러 발생 : ", err);
 });
 const createDb = (tableName, rowOne, rowTwo, rowThree) => {
@@ -19,3 +19,5 @@ const createDb = (tableName, rowOne, rowTwo, rowThree) => {
 
 const baseCreate = createDb("base", "name", "hpoint", "ypoint");
 const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
+baseCreate();
+activeCreate();
