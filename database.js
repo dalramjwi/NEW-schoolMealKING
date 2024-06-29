@@ -1,4 +1,5 @@
 const menuArray = require("./public/data/menuArr");
+import { menuData } from "./public/data/menuData";
 const database = require("sqlite3").verbose();
 const db = new database.Database(`./database/school.db`, (err) => {
   console.log("에러 발생 : ", err);
@@ -46,7 +47,11 @@ const baseCreate = createDb("base", "name", "hpoint", "ypoint");
 const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
 baseCreate();
 activeCreate();
+const menuData = menuArray.menuValue();
+menuData.forEach(([name, hpoint, ypoint]) => {
+  const insertBaseData = insertDb("base", name, hpoint, ypoint);
+  insertBaseData();
+});
 // const insertBaseData = insertDb("base", "김치찌개", 1, 2);
 // insertBaseData();
 // insertActiveData();
-console.log(menuArray.menuValue());
