@@ -1,5 +1,4 @@
 const menuArray = require("./public/data/menuArr");
-import { menuData } from "./public/data/menuData";
 const database = require("sqlite3").verbose();
 const db = new database.Database(`./database/school.db`, (err) => {
   console.log("에러 발생 : ", err);
@@ -42,16 +41,28 @@ const insertDb = (tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
     });
   };
 };
-
 const baseCreate = createDb("base", "name", "hpoint", "ypoint");
 const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
-baseCreate();
-activeCreate();
-const menuData = menuArray.menuValue();
-menuData.forEach(([name, hpoint, ypoint]) => {
-  const insertBaseData = insertDb("base", name, hpoint, ypoint);
-  insertBaseData();
-});
-// const insertBaseData = insertDb("base", "김치찌개", 1, 2);
-// insertBaseData();
+const insertBaseData = () => {
+  const insertMenu = menuArray.menuValue();
+  insertMenu.forEach(([name, hpoint, ypoint]) => {
+    const insert = insertDb("base", name, hpoint, ypoint);
+    insert();
+  });
+};
+const work = async () => {
+  try {
+    // 테이블 생성
+    await baseCreate();
+    await activeCreate();
+
+    // 데이터 삽입
+    await insertBaseData();
+  } catch (error) {
+    console.error("오류 : ", error);
+  } finally {
+    db.close();
+  }
+};
+work();
 // insertActiveData();
