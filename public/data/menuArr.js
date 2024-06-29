@@ -1,4 +1,4 @@
-const menuArr = {
+const menuArray = {
   menu: {
     han: ["고등어 구이", "김치찌개", "불고기", "잡채", "볶음밥"],
     yang: ["샐러드", "스프", "피자", "햄버거", "스파게티"],
@@ -10,9 +10,9 @@ const menuArr = {
     const ypoint = [2, 1, 0, 0, 3, 1, 0, 0, 0, 0, 1, 1, 0];
 
     // this.menu를 참조하여 변형
-    const menuArr = Object.keys(menuData.menu).reduce((acc, key) => {
+    const menuArr = Object.keys(menuArray.menu).reduce((acc, key) => {
       // 카테고리의 각 메뉴 항목을 변형하여 acc 배열에 추가
-      menuData.menu[key].forEach((item, index) => {
+      menuArray.menu[key].forEach((item, index) => {
         // 메뉴 항목의 hpoint와 ypoint를 배열에서 가져옴
         const h = hpoint[index];
         const y = ypoint[index];
@@ -24,4 +24,4 @@ const menuArr = {
     return menuArr;
   },
 };
-module.exports = menuArr;
+module.exports = menuArray;
