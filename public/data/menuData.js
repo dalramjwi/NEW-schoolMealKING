@@ -40,9 +40,9 @@ const menuData = {
     const ypoint = [2, 1, 0, 0, 3, 1, 0, 0, 0, 0, 1, 1, 0];
 
     // this.menu를 참조하여 변형
-    const menuArr = Object.keys(this.menu).reduce((acc, key) => {
+    const menuArr = Object.keys(menuData.menu).reduce((acc, key) => {
       // 카테고리의 각 메뉴 항목을 변형하여 acc 배열에 추가
-      this.menu[key].forEach((item, index) => {
+      menuData.menu[key].forEach((item, index) => {
         // 메뉴 항목의 hpoint와 ypoint를 배열에서 가져옴
         const h = hpoint[index];
         const y = ypoint[index];
