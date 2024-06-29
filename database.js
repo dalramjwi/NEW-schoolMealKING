@@ -5,12 +5,29 @@ const db = new database.Database(`./database/school.db`, (err) => {
 const createDb = (tableName, rowOne, rowTwo, rowThree) => {
   return () => {
     db.run(
-      `CREATE TABLE ${tableName} (${rowOne} TEXT NOT NULL, ${rowTwo} NUMBER NOT NULL, ${rowThree} NUMBER NOT NULL )`,
+      `CREATE TABLE IF NOT EXISTS ${tableName} (${rowOne} TEXT NOT NULL, ${rowTwo} NUMBER NOT NULL, ${rowThree} NUMBER NOT NULL )`,
       (err) => {
         if (err) {
           console.log("오류 : ", err);
         } else {
           console.log(`${tableName} 생성됨`);
+        }
+      }
+    );
+  };
+};
+const insertDb = (tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
+  return () => {
+    db.run(
+      `INSERT INTO ${tableName} (name, hpoint, ypoint) VALUES (?, ?, ?)`,
+      [rowOneValue, rowTwoValue, rowThreeValue],
+      function (err) {
+        if (err) {
+          console.log("오류 : ", err);
+        } else {
+          console.log(
+            `데이터 삽입됨: ${rowOneValue}, ${rowTwoValue}, ${rowThreeValue}`
+          );
         }
       }
     );
