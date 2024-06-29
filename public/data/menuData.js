@@ -1,4 +1,4 @@
-export const menuData = {
+const menuData = {
   /**
    * @param {number} col grid의 col 수
    * @param {number} month 해당 설정할 달
@@ -54,3 +54,4 @@ export const menuData = {
     return menuArr;
   },
 };
+console.log(menuData.menuValue());
