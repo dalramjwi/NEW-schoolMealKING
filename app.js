@@ -57,7 +57,11 @@ app.post("/cafe", async function (req, res) {
       result.hpointAll = row.totalHpoint;
       result.ypointAll = row.totalYpoint;
       console.log(result);
-      res.send(m.componentAssemble.main);
+      if (result.hpointAll >= 5) {
+        res.send(m.componentAssemble.cafe1);
+      } else {
+        res.send(m.componentAssemble.cafe0);
+      }
     });
   } catch (error) {
     console.error("오류 발생:", error);
