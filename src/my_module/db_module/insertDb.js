@@ -8,6 +8,8 @@ const insertDb = (db, tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
       insertQuery = `INSERT INTO base (name, hpoint, ypoint) VALUES (?, ?, ?)`;
     } else if (tableName === "active") {
       insertQuery = `INSERT INTO active (nameOne, nameTwo, nameThree) VALUES (?, ?, ?)`;
+    } else if (tableName === "sum") {
+      insertQuery = `INSERT INTO sum (hpointAll, ypointALl) VALUES (?, ?)`;
     }
 
     db.run(insertQuery, params, function (err) {
