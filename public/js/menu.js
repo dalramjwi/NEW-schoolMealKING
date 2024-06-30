@@ -40,14 +40,32 @@ menu.addEventListener("click", (event) => {
     updateMenu(7);
   });
 });
-//fetch 사용해 서버에 데이터 전송
+// 메뉴 개수 체크 및 서버에 데이터 전송
 bLine.addEventListener("click", (event) => {
   event.preventDefault();
+  // 선택된 메뉴 개수 확인
+  if (selectedMenus.length < 3) {
+    alert("메뉴를 3개 선택해야 합니다.");
+    return;
+  }
+  // 3개 이상 선택된 경우 서버로 데이터 전송
   fetch("/cafe", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(selectedMenus),
-  });
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        window.location.href = "./cafe.html";
+      } else {
+        alert("서버 요청에 실패했습니다.");
+      }
+    })
+    .catch((error) => {
+      console.error("서버와의 통신 오류:", error);
+      alert("서버와의 통신 오류가 발생했습니다.");
+    });
 });
