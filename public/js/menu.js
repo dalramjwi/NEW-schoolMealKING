@@ -56,13 +56,11 @@ bLine.addEventListener("click", (event) => {
     },
     body: JSON.stringify(selectedMenus),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        window.location.href = "./cafe.html";
-      } else {
-        alert("서버 요청에 실패했습니다.");
-      }
+    .then((response) => response.text())
+    .then((html) => {
+      document.open();
+      document.write(html);
+      document.close();
     })
     .catch((error) => {
       console.error("서버와의 통신 오류:", error);

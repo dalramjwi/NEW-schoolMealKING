@@ -57,7 +57,7 @@ app.post("/cafe", async function (req, res) {
       result.hpointAll = row.totalHpoint;
       result.ypointAll = row.totalYpoint;
       console.log(result);
-      res.send(m.componentAssemble.menu); // 클라이언트에 응답으로 `menu` HTML 전송
+      res.send(m.componentAssemble.main);
     });
   } catch (error) {
     console.error("오류 발생:", error);
