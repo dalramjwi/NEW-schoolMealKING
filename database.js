@@ -10,13 +10,6 @@ const insertDb = require("./src/my_module/db_module/insertDb.js");
 
 // Promise 기반으로 `createDb()` 호출
 const baseCreate = createDb(db, "base", "name", "hpoint", "ypoint");
-const activeCreate = createDb(
-  db,
-  "active",
-  "selectName",
-  "hpointAll",
-  "ypointAll"
-);
 
 const insertBaseData = async () => {
   const insertMenu = menuArray.menuValue();

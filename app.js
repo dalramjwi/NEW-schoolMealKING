@@ -11,13 +11,7 @@ const db = new database.Database(`./database/school.db`, (err) => {
 });
 const app = express();
 const port = process.env.PORT || 3000;
-const activeCreate = createDb(
-  db,
-  "active",
-  "selectName",
-  "hpointAll",
-  "ypointAll"
-);
+const activeCreate = createDb(db, "active", "nameOne", "nameTwo", "nameThree");
 
 app.use("/public", express.static("public"));
 app.use(express.json());
@@ -33,12 +27,8 @@ app.post("/cafe", async function (req, res) {
   try {
     // `active` 테이블 생성
     await activeCreate;
-
     // `active` 테이블에 데이터 삽입
-    for (const item of parsedData) {
-      await insertDb(db, "active", item.name, item.hpoint, item.ypoint);
-    }
-
+    await insertDb(db, "active", parsedData[0], parsedData[1], parsedData[2]);
     const responseData = {
       success: true,
       message: "Data received and saved successfully",
