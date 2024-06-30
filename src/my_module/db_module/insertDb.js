@@ -7,7 +7,7 @@ const insertDb = (db, tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
     if (tableName === "base") {
       insertQuery = `INSERT INTO base (name, hpoint, ypoint) VALUES (?, ?, ?)`;
     } else if (tableName === "active") {
-      insertQuery = `INSERT INTO active (selectNameOne, selectNameTwo, selectNameThree) VALUES (?, ?, ?)`;
+      insertQuery = `INSERT INTO active (nameOne, nameTwo, nameThree) VALUES (?, ?, ?)`;
     }
 
     db.run(insertQuery, params, function (err) {
