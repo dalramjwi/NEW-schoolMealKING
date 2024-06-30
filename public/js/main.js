@@ -20,3 +20,6 @@ letter.addEventListener("click", () => {
     console.log("already make tag");
   }
 });
+letter.addEventListener("click", function () {
+  this.classList.toggle("open");
+});
