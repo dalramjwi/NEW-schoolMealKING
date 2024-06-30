@@ -13,6 +13,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 const activeCreate = createDb(db, "active", "nameOne", "nameTwo", "nameThree");
 
+// 빈 객체 `result` 정의
+let result = { hpointAll: 0, ypointAll: 0 };
+
 app.use("/public", express.static("public"));
 app.use(express.json());
 app.get("/", function (req, res) {
@@ -29,11 +32,29 @@ app.post("/cafe", async function (req, res) {
     await activeCreate;
     // `active` 테이블에 데이터 삽입
     await insertDb(db, "active", parsedData[0], parsedData[1], parsedData[2]);
-    const responseData = {
-      success: true,
-      message: "Data received and saved successfully",
-    };
-    res.status(200).json(responseData);
+
+    // `base` 테이블에서 Hpoint와 Ypoint의 총합을 계산
+    const selectQuery = `SELECT hpoint, ypoint FROM base WHERE name IN (SELECT nameOne FROM active UNION SELECT nameTwo FROM active UNION SELECT nameThree FROM active)`;
+
+    let hpointAll = 0;
+    let ypointAll = 0;
+
+    db.all(selectQuery, (err, rows) => {
+      if (err) {
+        throw err;
+      }
+
+      for (const row of rows) {
+        hpointAll += row.hpoint; // Hpoint 총합 계산
+        ypointAll += row.ypoint; // Ypoint 총합 계산
+        console.log(hpointAll, ypointAll);
+      }
+      // `result` 객체에 Hpoint와 Ypoint 총합 저장
+      result.hpointAll = rows.hpointAll;
+      result.ypointAll = rows.ypointAll;
+      console.log(result);
+      res.send(result);
+    });
   } catch (error) {
     console.error("오류 발생:", error);
     const responseData = { success: false, message: "Data processing error" };
