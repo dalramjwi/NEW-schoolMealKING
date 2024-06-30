@@ -10,7 +10,7 @@ const insertDb = require("./src/my_module/db_module/insertDb.js");
 
 // Promise 기반으로 `createDb()` 호출
 const baseCreate = createDb(db, "base", "name", "hpoint", "ypoint");
-
+const sumCreate = createDb(db, "sum", "hpointAll", "ypointAll", "1");
 const insertBaseData = async () => {
   const insertMenu = menuArray.menuValue();
   for (const [name, hpoint, ypoint] of insertMenu) {
@@ -22,6 +22,7 @@ const insertBaseData = async () => {
 const work = async () => {
   try {
     await baseCreate; // 테이블 생성 완료를 기다림
+    await sumCreate;
     // await activeCreate;
     await insertBaseData(); // 데이터 삽입 완료를 기다림
   } catch (error) {
