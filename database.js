@@ -6,23 +6,6 @@ const db = new database.Database(`./database/school.db`, (err) => {
   }
 });
 
-// 테이블을 생성하는 함수, Promise 기반
-const createDb = (tableName, rowOne, rowTwo, rowThree) => {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `CREATE TABLE IF NOT EXISTS ${tableName} (${rowOne} TEXT NOT NULL, ${rowTwo} NUMBER NOT NULL, ${rowThree} NUMBER NOT NULL )`,
-      (err) => {
-        if (err) {
-          reject(err); // 오류 발생 시 Promise를 reject
-        } else {
-          console.log(`${tableName} 생성됨`);
-          resolve(); // 성공 시 Promise를 resolve
-        }
-      }
-    );
-  });
-};
-
 // 데이터를 삽입하는 함수, Promise 기반
 const insertDb = (tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
   return new Promise((resolve, reject) => {
@@ -63,7 +46,7 @@ const insertBaseData = async () => {
 const work = async () => {
   try {
     await baseCreate; // 테이블 생성 완료를 기다림
-    await activeCreate;
+    // await activeCreate;
     await insertBaseData(); // 데이터 삽입 완료를 기다림
   } catch (error) {
     console.error("오류 : ", error);
