@@ -30,30 +30,34 @@ app.post("/cafe", async function (req, res) {
   try {
     // `active` 테이블 생성
     await activeCreate;
+
     // `active` 테이블에 데이터 삽입
     await insertDb(db, "active", parsedData[0], parsedData[1], parsedData[2]);
 
     // `base` 테이블에서 Hpoint와 Ypoint의 총합을 계산
-    const selectQuery = `SELECT hpoint, ypoint FROM base WHERE name IN (SELECT nameOne FROM active UNION SELECT nameTwo FROM active UNION SELECT nameThree FROM active)`;
+    const selectQuery = `
+      SELECT SUM(b.hpoint) AS totalHpoint, SUM(b.ypoint) AS totalYpoint 
+      FROM base AS b
+      JOIN (
+        SELECT nameOne AS name FROM active
+        UNION
+        SELECT nameTwo AS name FROM active
+        UNION
+        SELECT nameThree AS name FROM active
+      ) AS a
+      ON b.name = a.name
+    `;
 
-    let hpointAll = 0;
-    let ypointAll = 0;
-
-    db.all(selectQuery, (err, rows) => {
+    db.get(selectQuery, (err, row) => {
       if (err) {
         throw err;
       }
 
-      for (const row of rows) {
-        hpointAll += row.hpoint; // Hpoint 총합 계산
-        ypointAll += row.ypoint; // Ypoint 총합 계산
-        console.log(hpointAll, ypointAll);
-      }
       // `result` 객체에 Hpoint와 Ypoint 총합 저장
-      result.hpointAll = rows.hpointAll;
-      result.ypointAll = rows.ypointAll;
+      result.hpointAll = row.totalHpoint;
+      result.ypointAll = row.totalYpoint;
       console.log(result);
-      res.send(result);
+      res.send(m.componentAssemble.menu); // 클라이언트에 응답으로 `menu` HTML 전송
     });
   } catch (error) {
     console.error("오류 발생:", error);
