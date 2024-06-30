@@ -48,7 +48,7 @@ app.post("/cafe", async function (req, res) {
       ON b.name = a.name
     `;
 
-    db.get(selectQuery, (err, row) => {
+    db.get(selectQuery, async (err, row) => {
       if (err) {
         throw err;
       }
@@ -57,6 +57,7 @@ app.post("/cafe", async function (req, res) {
       result.hpointAll = row.totalHpoint;
       result.ypointAll = row.totalYpoint;
       console.log(result);
+      await insertDb(db, "sum", result.hpointAll, result.ypointAll, 1);
       if (result.hpointAll >= 5) {
         res.send(m.componentAssemble.cafe1);
       } else {

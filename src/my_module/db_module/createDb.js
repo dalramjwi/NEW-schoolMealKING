@@ -3,7 +3,7 @@ const createDb = (db, tableName, rowOne, rowTwo, rowThree, sum = "0") => {
   return new Promise((resolve, reject) => {
     if (sum === "1") {
       db.run(
-        `CREATE TABLE IF NOT EXISTS ${tableName} (${rowOne} NUMBER, ${rowTwo} NUMBER)`,
+        `CREATE TABLE IF NOT EXISTS ${tableName} (${rowOne} NUMBER, ${rowTwo} NUMBER, ${rowThree} NUMBER)`,
         (err) => {
           if (err) {
             reject(err); // 오류 발생 시 Promise를 reject

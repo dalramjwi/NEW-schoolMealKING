@@ -9,7 +9,7 @@ const insertDb = (db, tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
     } else if (tableName === "active") {
       insertQuery = `INSERT INTO active (nameOne, nameTwo, nameThree) VALUES (?, ?, ?)`;
     } else if (tableName === "sum") {
-      insertQuery = `INSERT INTO sum (hpointAll, ypointALl) VALUES (?, ?)`;
+      insertQuery = `INSERT INTO sum (hpointAll, ypointAll, turn) VALUES (?, ?, ?)`;
     }
 
     db.run(insertQuery, params, function (err) {
