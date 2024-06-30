@@ -1,19 +1,27 @@
-const menuArray = require("./public/data/menuArr");
 const database = require("sqlite3").verbose();
 const db = new database.Database(`./database/school.db`, (err) => {
   if (err) {
     console.log("에러 발생 : ", err);
   }
 });
+const menuArray = require("./public/data/menuArr");
+const createDb = require("./src/my_module/db_module/createDb.js");
+const insertDb = require("./src/my_module/db_module/insertDb.js");
 
 // Promise 기반으로 `createDb()` 호출
-const baseCreate = createDb("base", "name", "hpoint", "ypoint");
-const activeCreate = createDb("active", "selectName", "hpointAll", "ypointAll");
+const baseCreate = createDb(db, "base", "name", "hpoint", "ypoint");
+const activeCreate = createDb(
+  db,
+  "active",
+  "selectName",
+  "hpointAll",
+  "ypointAll"
+);
 
 const insertBaseData = async () => {
   const insertMenu = menuArray.menuValue();
   for (const [name, hpoint, ypoint] of insertMenu) {
-    await insertDb("base", name, hpoint, ypoint); // 기존 insertDb 호출
+    await insertDb(db, "base", name, hpoint, ypoint);
   }
 };
 

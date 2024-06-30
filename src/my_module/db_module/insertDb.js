@@ -22,3 +22,4 @@ const insertDb = (db, tableName, rowOneValue, rowTwoValue, rowThreeValue) => {
     });
   });
 };
+module.exports = insertDb;
