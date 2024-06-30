@@ -31,9 +31,29 @@ const divMaker = {
     return divMaker.line + graph + divMaker.bLine;
   },
   cafeRootContent: () => {
+    // 각 div 요소를 정의
     const show = tagIdMaker("div", "show");
+    const human = tagIdMaker("div", "human");
+    const desk = tagIdMaker("div", "desk");
+    const mealOne = tagIdMaker("div", "mealOne");
+    const mealTwo = tagIdMaker("div", "mealTwo");
+    const mealThree = tagIdMaker("div", "mealThree");
+    const mealFour = tagIdMaker("div", "mealFour");
+    const mealFive = tagIdMaker("div", "mealFive");
+
+    // foodPartOne과 foodPartTwo를 정의
+    const foodPartOne = tagIdMaker("div", "foodPartOne", mealOne + mealTwo);
+    const foodPartTwo = tagIdMaker(
+      "div",
+      "foodPartTwo",
+      mealThree + mealFour + mealFive
+    );
+
+    // food와 space를 정의
+    const food = tagIdMaker("div", "food", foodPartOne + foodPartTwo);
+    const space = tagIdMaker("div", "space", human + desk + food);
     const cafeLine = tagIdMaker("div", "line", show);
-    const space = tagIdMaker("div", "space", trio);
+    return cafeLine + space + divMaker.bLine;
   },
 };
 module.exports = divMaker;
