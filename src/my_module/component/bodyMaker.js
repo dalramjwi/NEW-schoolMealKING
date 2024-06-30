@@ -9,5 +9,6 @@ function bodyMaker(content) {
 const body = {
   mainBody: bodyMaker(divMaker.root(divMaker.mainRootContent())),
   menuBody: bodyMaker(divMaker.root(divMaker.menuRootContent())),
+  cafeBody: bodyMaker(divMaker.root(divMaker.cafeRootContent())),
 };
 module.exports = body;
