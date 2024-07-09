@@ -1,4 +1,14 @@
 import { imgSrc } from "../data/imgSrc.js";
+//div id, 변수 할당
+const root = document.getElementById("root");
+const line = document.getElementById("line");
+const human = document.getElementById("human");
+const food = document.getElementById("food");
+const mealOne = document.getElementById("mealOne");
+const mealTwo = document.getElementById("mealTwo");
+const mealThree = document.getElementById("mealThree");
+const mealFour = document.getElementById("mealFour");
+const mealFive = document.getElementById("mealFive");
 class DataConverter {
   constructor(data) {
     this.convertedData = {};
