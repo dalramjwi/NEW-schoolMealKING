@@ -74,3 +74,5 @@ imgSrc = [
     },
   ],
 ];
+const converter = new DataConverter(imgSrc);
+console.log(converter.convertedData);
