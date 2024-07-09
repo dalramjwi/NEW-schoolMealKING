@@ -1,5 +1,6 @@
 import { imgSrc } from "../data/imgSrc.js";
-//div id, 변수 할당
+
+// div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
 const human = document.getElementById("human");
@@ -9,6 +10,8 @@ const mealTwo = document.getElementById("mealTwo");
 const mealThree = document.getElementById("mealThree");
 const mealFour = document.getElementById("mealFour");
 const mealFive = document.getElementById("mealFive");
+
+// DataConverter 클래스 정의
 class DataConverter {
   constructor(data) {
     this.convertedData = {};
@@ -29,6 +32,9 @@ class DataConverter {
 }
 
 const converter = new DataConverter(imgSrc);
+//converter는 div id에 해당하는 img 제목을 가진 객체
+console.log(converter);
+// generateImgSrc 함수 정의
 function generateImgSrc(divId) {
   if (converter.convertedData[divId]) {
     const value = converter.convertedData[divId];
@@ -45,8 +51,4 @@ function generateImgSrc(divId) {
     }
   }
 }
-
-// 예시 사용법
-const divId = "mealThree";
-const imgSrcPaths = generateImgSrc(divId);
-console.log(imgSrcPaths);
+console.log(generateImgSrc("mealFive"));
