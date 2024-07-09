@@ -1,3 +1,6 @@
+import { imgSrc } from "../data/imgSrc.js";
+import { DataConverter } from "../js_module/DataConverter.js";
+const converter = new DataConverter(imgSrc);
 // generateImgSrc 함수 정의
 export function generateImgSrc(divId) {
   if (converter.convertedData[divId]) {

@@ -1,5 +1,3 @@
-import { imgSrc } from "../data/imgSrc.js";
-import { DataConverter } from "../js_module/DataConverter.js";
 import { generateImgSrc } from "../js_module/generateImgSrc.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
@@ -14,7 +12,6 @@ const mealFour = document.getElementById("mealFour");
 const mealFive = document.getElementById("mealFive");
 
 //converter는 div id에 해당하는 img 제목을 가진 객체
-const converter = new DataConverter(imgSrc);
 
 console.log(generateImgSrc("mealFive"));
 
