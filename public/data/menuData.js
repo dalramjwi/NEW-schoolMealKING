@@ -16,6 +16,11 @@ export const menuData = {
     yang: ["샐러드", "스프", "피자", "햄버거", "스파게티"],
     hoo: ["떡", "마늘빵", "주스", "쿠키", "아이스크림"],
   },
+  menuEng: {
+    han: ["fish", "gook", "bool", "japchae", "rice"],
+    yang: ["salad", "soup", "pizza", "ham", "spa"],
+    hoo: ["ddok", "bread", "tea", "cookie", "ice"],
+  },
 
   idArr: [
     "fish",
