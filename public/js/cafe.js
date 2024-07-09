@@ -10,11 +10,7 @@ const mealTwo = document.getElementById("mealTwo");
 const mealThree = document.getElementById("mealThree");
 const mealFour = document.getElementById("mealFour");
 const mealFive = document.getElementById("mealFive");
-
-//converter는 div id에 해당하는 img 제목을 가진 객체
-
-console.log(generateImgSrc("mealFive"));
-
+//기본 img 설정
 const humanBaseImgSrc = generateImgSrc("human")[0];
 const humanImg = document.createElement("img");
 humanImg.src = humanBaseImgSrc;
