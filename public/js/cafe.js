@@ -28,4 +28,4 @@ setTimeout(() => {
   else if (title.includes("1")) {
     human.querySelector("img").src = generateImgSrc("human")[2];
   }
-}, 10000); // 10초 후에 실행
+}, 5000); // 5초 후에 실행
