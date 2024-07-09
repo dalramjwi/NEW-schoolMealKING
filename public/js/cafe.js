@@ -29,4 +29,24 @@ class DataConverter {
 }
 
 const converter = new DataConverter(imgSrc);
-console.log(converter.convertedData);
+function generateImgSrc(divId) {
+  if (converter.convertedData[divId]) {
+    const value = converter.convertedData[divId];
+    if (typeof value === "object") {
+      const imgSrcPaths = [];
+      for (let key in value) {
+        if (value.hasOwnProperty(key)) {
+          imgSrcPaths.push(`./public/img/${value[key]}.png`);
+        }
+      }
+      return imgSrcPaths;
+    } else if (typeof value === "string") {
+      return [`./public/img/${value}.png`];
+    }
+  }
+}
+
+// 예시 사용법
+const divId = "mealThree";
+const imgSrcPaths = generateImgSrc(divId);
+console.log(imgSrcPaths);
