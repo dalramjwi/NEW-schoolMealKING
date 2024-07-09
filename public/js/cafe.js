@@ -29,3 +29,18 @@ setTimeout(() => {
     human.querySelector("img").src = generateImgSrc("human")[2];
   }
 }, 5000); // 5초 후에 실행
+// 서버에 fetch 요청을 보내서 DB의 active 테이블에서 값을 조회하고, 그 값을 console.log에 출력하는 함수
+async function fetchActiveData() {
+  try {
+    const response = await fetch("/cafeData");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    const { nameOne, nameTwo, nameThree } = data;
+    console.log("메뉴 : ", nameOne, nameTwo, nameThree);
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+}
+fetchActiveData();

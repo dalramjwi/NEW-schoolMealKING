@@ -70,6 +70,26 @@ app.post("/cafe", async function (req, res) {
     res.status(500).json(responseData);
   }
 });
+app.get("/cafeData", (req, res) => {
+  // 1. 쿼리 작성: 'active' 테이블에서 하나의 레코드를 가져오는 SQL 명령어
+  const query = `
+    SELECT nameOne, nameTwo, nameThree
+    FROM active
+    LIMIT 1
+  `;
+
+  // 2. 쿼리 실행: 데이터베이스에서 쿼리를 실행하고 결과를 가져옴
+  db.get(query, (err, row) => {
+    if (err) {
+      // 3. 오류 처리: 쿼리 실행 중 오류가 발생하면 콘솔에 로그를 남기고, 클라이언트에 오류 응답을 보냄
+      console.error("쿼리 실행 오류:", err);
+      res.status(500).json({ success: false, message: "Query error" });
+      return;
+    }
+    // 4. 성공적으로 데이터를 가져온 경우: 데이터를 JSON 형태로 클라이언트에 응답함
+    res.json(row);
+  });
+});
 app.use(function (err, req, res, next) {
   res.send("Error EXist");
 });
