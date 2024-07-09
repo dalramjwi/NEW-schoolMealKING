@@ -3,6 +3,7 @@ import { imgSrc } from "../data/imgSrc.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
+const show = document.getElementById("show");
 const human = document.getElementById("human");
 const food = document.getElementById("food");
 const mealOne = document.getElementById("mealOne");
@@ -52,11 +53,17 @@ function generateImgSrc(divId) {
   }
 }
 console.log(generateImgSrc("mealFive"));
-// human div의 base 값 이미지 경로를 가져오기
-const humanBaseImgSrc = generateImgSrc("human")[0]; // "human"의 base 값의 첫 번째 이미지 경로를 가져옴
 
-// human div에 이미지 추가
+const humanBaseImgSrc = generateImgSrc("human")[0];
 const humanImg = document.createElement("img");
-humanImg.src = humanBaseImgSrc; // base 이미지 경로를 src 속성에 설정
-humanImg.alt = "Human Base Image"; // 이미지의 alt 속성 설정 (상황에 맞는 설명을 추가할 수 있음)
-human.appendChild(humanImg); // human div에 img 태그를 추가
+humanImg.src = humanBaseImgSrc;
+humanImg.alt = "Human Base Image";
+human.appendChild(humanImg);
+const foodBaseImg = generateImgSrc("food");
+const foodImg = document.createElement("img");
+foodImg.src = foodBaseImg;
+food.appendChild(foodImg);
+const showBaseImg = generateImgSrc("show");
+const showImg = document.createElement("img");
+showImg.src = showBaseImg;
+show.appendChild(showImg);
