@@ -1,3 +1,4 @@
+import { imgSrc } from "../data/imgSrc.js";
 class DataConverter {
   constructor(data) {
     this.convertedData = {};
