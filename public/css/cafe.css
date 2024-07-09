@@ -1,0 +1,19 @@
+#root {
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+}
+#line {
+  position: relative;
+}
+#show {
+  position: absolute;
+}
+#space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
