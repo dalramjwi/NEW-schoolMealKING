@@ -1,4 +1,5 @@
 import { generateImgSrc } from "../js_module/generateImgSrc.js";
+import { createAndAppendImg } from "../js_module/createAppendImg.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
