@@ -16,3 +16,16 @@ const mealFive = document.getElementById("mealFive");
 createImgData().forEach(({ src, parent, alt }) => {
   createAndAppendImg(src, parent, alt);
 });
+// setTimeout을 사용하여 title을 체크하고 이미지 변경하기
+setTimeout(() => {
+  const title = document.title;
+
+  // title에 0이 포함되어 있으면 human 이미지를 sad로 변경
+  if (title.includes("0")) {
+    human.querySelector("img").src = generateImgSrc("human")[1];
+  }
+  // title에 1이 포함되어 있으면 human 이미지를 happy로 변경
+  else if (title.includes("1")) {
+    human.querySelector("img").src = generateImgSrc("human")[2];
+  }
+}, 10000); // 10초 후에 실행
