@@ -1,4 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 #root {
+  width: 100vw;
+  height: 100vh;
   background-image: url("../img/background.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -8,12 +14,41 @@
 #line {
   position: relative;
 }
-#show {
+#show > img {
   position: absolute;
+  width: 10vw;
+  height: 10vw;
+  right: 1vw;
+  top: 1vw;
 }
 #space {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+#food {
+  display: flex;
+  justify-content: center;
+}
+#food > img {
+  position: absolute;
+  width: 25vw;
+  height: 22vw;
+  top: 65vh;
+}
+#human {
+  display: flex;
+  justify-content: center;
+}
+#human > img {
+  position: absolute;
+  top: 8vh;
+}
+#desk {
+  background: gray;
+  width: 100vw;
+  height: 37vh;
+  position: absolute;
+  top: 63vh;
 }
