@@ -22,11 +22,11 @@ setTimeout(() => {
 
   // title에 0이 포함되어 있으면 human 이미지를 sad로 변경
   if (title.includes("0")) {
-    human.querySelector("img").src = generateImgSrc("human")[1];
+    human.querySelector("img").src = generateImgSrc("human")[0];
   }
   // title에 1이 포함되어 있으면 human 이미지를 happy로 변경
   else if (title.includes("1")) {
-    human.querySelector("img").src = generateImgSrc("human")[2];
+    human.querySelector("img").src = generateImgSrc("human")[1];
   }
 }, 5000); // 5초 후에 실행
 // 서버에 fetch 요청을 보내서 DB의 active 테이블에서 값을 조회하고, 그 값을 console.log에 출력하는 함수
