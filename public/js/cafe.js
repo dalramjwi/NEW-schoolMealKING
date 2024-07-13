@@ -1,7 +1,7 @@
 import { generateImgSrc } from "../js_module/generateImgSrc.js";
 import { createImgData } from "../js_module/createImgData.js";
 import { createAndAppendImg } from "../js_module/createAppendImg.js";
-import { menuMatchEng } from "../js_module/menuMatchEng.js";
+import { combinedArray } from "../js_module/menuMatchEng.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
@@ -40,6 +40,7 @@ async function fetchActiveData() {
     const data = await response.json();
     const { nameOne, nameTwo, nameThree } = data;
     console.log("메뉴 : ", nameOne, nameTwo, nameThree);
+    console.log(combinedArray);
   } catch (error) {
     console.error("Fetch error:", error);
   }
