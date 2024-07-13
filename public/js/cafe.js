@@ -1,6 +1,7 @@
 import { generateImgSrc } from "../js_module/generateImgSrc.js";
 import { createImgData } from "../js_module/createImgData.js";
 import { createAndAppendImg } from "../js_module/createAppendImg.js";
+import { menuMatchEng } from "../js_module/menuMatchEng.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
