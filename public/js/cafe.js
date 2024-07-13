@@ -40,9 +40,17 @@ async function fetchActiveData() {
     const data = await response.json();
     const { nameOne, nameTwo, nameThree } = data;
     console.log("메뉴 : ", nameOne, nameTwo, nameThree);
-    console.log(combinedArray);
   } catch (error) {
     console.error("Fetch error:", error);
   }
 }
 fetchActiveData();
+//전송받을 한글 데이터와 영어 데이터를 매칭시켜 변환시켜주는 함수
+
+// 메뉴 이름에 따라 이미지 소스를 반환하는 함수
+function generateImgSrcByMenuName(menuName) {
+  for (const key in combinedArray) {
+    console.log(key, combinedArray[key]);
+  }
+}
+generateImgSrcByMenuName();
