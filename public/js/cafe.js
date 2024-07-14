@@ -49,8 +49,17 @@ fetchActiveData();
 
 // 메뉴 이름에 따라 이미지 소스를 반환하는 함수
 function generateImgSrcByMenuName(menuName) {
-  for (const key in combinedArray) {
-    console.log(key, combinedArray[key]);
-  }
+  let result = "";
+  combinedArray.forEach((pair) => {
+    // 여기서 pair는 combinedArray의 각 요소, 즉 ["고등어 구이", "fish"]와 같은 배열을 의미
+    const [nameKor, nameEng] = pair; // 이중 배열의 첫 번째 값과 두 번째 값을 각각 nameKor와 nameEng에 할당
+    // 일치하는 경우 result에 해당 배열의 두 번째 값을 저장
+    if (nameKor === menuName) {
+      result = nameEng;
+      console.log(result);
+      //result 값을 반환
+    }
+    return result;
+  });
 }
-generateImgSrcByMenuName();
+console.log(generateImgSrcByMenuName("떡"));
