@@ -63,14 +63,22 @@ function generateImgSrcByMenuName(menuName) {
   });
   return result;
 }
-function appendImg(menuName) {
-  const engName = generateImgSrcByMenuName(menuName);
-}
 console.log(generateImgSrcByMenuName("떡"));
 // console.log(combinedArray);
-console.log(imgSrc);
+// console.log(imgSrc);
 //imgSrc 배열을 이용한 mealOne, Two, Three, Four, Five의 키만 가진 배열 생성
 const foodImgArr = imgSrc.filter((element) => {
   return element[0].includes("meal");
 });
 console.log(foodImgArr);
+
+function appendImg(menuName) {
+  const engName = generateImgSrcByMenuName(menuName);
+  //배열 메서드를 통해 engName이 포함되어 있는 객체의 key 값과 해당 engName 반환, 또한 객체의 key값을 배열에서 제거한다.
+  foodImgArr[1].forEach((key) => {
+    if (key === engName) {
+      return [key, foodImgArr[1]];
+    }
+  });
+}
+console.log(appendImg("떡"));
