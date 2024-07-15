@@ -75,10 +75,16 @@ console.log(foodImgArr);
 function appendImg(menuName) {
   const engName = generateImgSrcByMenuName(menuName);
   //배열 메서드를 통해 engName이 포함되어 있는 객체의 key 값과 해당 engName 반환, 또한 객체의 key값을 배열에서 제거한다.
-  foodImgArr[1].forEach((key) => {
-    if (key === engName) {
-      return [key, foodImgArr[1]];
-    }
-  });
+  for (let i = 0; i < foodImgArr.length; i++) {
+    foodImgArr[i][1].forEach((key) => {
+      console.log(key);
+      console.log(engName);
+      if (key === engName) {
+        console.log("안녕");
+        return [key, foodImgArr[1]];
+      }
+    });
+  }
 }
 console.log(appendImg("떡"));
+console.log(foodImgArr);
