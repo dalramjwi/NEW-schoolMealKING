@@ -59,7 +59,7 @@ function generateImgSrcByMenuName(menuName) {
       console.log(result);
       //result 값을 반환
     }
-    return result;
   });
+  return result;
 }
 console.log(generateImgSrcByMenuName("떡"));
