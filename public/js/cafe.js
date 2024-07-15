@@ -2,6 +2,7 @@ import { generateImgSrc } from "../js_module/generateImgSrc.js";
 import { createImgData } from "../js_module/createImgData.js";
 import { createAndAppendImg } from "../js_module/createAppendImg.js";
 import { combinedArray } from "../js_module/menuMatchEng.js";
+import { imgSrc } from "../data/imgSrc.js";
 // div id, 변수 할당
 const root = document.getElementById("root");
 const line = document.getElementById("line");
@@ -62,4 +63,19 @@ function generateImgSrcByMenuName(menuName) {
   });
   return result;
 }
+function appendImg(menuName) {
+  const engName = generateImgSrcByMenuName(menuName);
+}
 console.log(generateImgSrcByMenuName("떡"));
+// console.log(combinedArray);
+console.log(imgSrc);
+//imgSrc 배열을 이용한 mealOne, Two, Three, Four, Five의 키만 가진 배열 생성
+const foodImgArr = imgSrc.filter((element) => {
+  let arr = [];
+  console.log(element);
+  if (element.includes("meal")) {
+    arr.push(element);
+  }
+  return arr;
+});
+console.log(foodImgArr);
