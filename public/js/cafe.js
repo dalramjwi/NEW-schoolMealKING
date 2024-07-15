@@ -71,11 +71,12 @@ console.log(generateImgSrcByMenuName("떡"));
 console.log(imgSrc);
 //imgSrc 배열을 이용한 mealOne, Two, Three, Four, Five의 키만 가진 배열 생성
 const foodImgArr = imgSrc.filter((element) => {
-  let arr = [];
   console.log(element);
-  if (element.includes("meal")) {
+  let arr = [];
+  if (element[0].includes("meal")) {
     arr.push(element);
   }
+  console.log(arr);
   return arr;
 });
 console.log(foodImgArr);
