@@ -89,5 +89,27 @@ function appendImg(menuName) {
     }
   }
 }
-console.log(foodImgArr);
-console.log(appendImg("떡"));
+//조건문 작성 => tilte 감지해서 3이면 이벤트로, 5이면 종료로 연결
+setTimeout(() => {
+  // 1. POST 요청을 보내는 부분
+  fetch("/return", {
+    method: "POST", // POST 요청
+    headers: {
+      "Content-Type": "application/json", // JSON 데이터 전송
+    },
+    body: JSON.stringify({ key: "goToFirst" }), // 요청 본문, JSON 형식
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // 2. 페이지 이동 부분
+      window.location.href = "/menu"; // POST 요청 후 이동할 페이지 URL
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+}, 15000);

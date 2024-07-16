@@ -90,6 +90,17 @@ app.get("/cafeData", (req, res) => {
     res.json(row);
   });
 });
+// '/return' 경로에 대한 POST 요청 처리
+app.post("/return", (req, res) => {
+  const { key } = req.body; // 요청 본문에서 'key' 값을 추출
+
+  // 'key' 값에 따라 적절한 응답을 전송
+  if (key === "goToFirst") {
+    res.json({ success: true, message: "Redirecting to /menu" });
+  } else {
+    res.status(400).json({ success: false, message: "Invalid key" }); // 잘못된 'key' 값에 대해 오류 응답
+  }
+});
 app.use(function (err, req, res, next) {
   res.send("Error EXist");
 });
