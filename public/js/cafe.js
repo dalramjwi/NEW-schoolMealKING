@@ -84,6 +84,7 @@ function appendImg(menuName) {
       const parentDiv = document.getElementById(foodImgArr[i][0]);
       const imgSrc = generateImgSrc(engName);
       createAndAppendImg(imgSrc, parentDiv, "");
+      foodImgArr.splice(i, 1);
       break;
     }
   }
