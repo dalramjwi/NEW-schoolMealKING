@@ -13,6 +13,8 @@ export const imgSrc = [
   [
     "mealThree",
     {
+      rice: "rice",
+      gook: "gook",
       japchae: "japchae",
       bool: "bool",
       fish: "fish",
@@ -29,6 +31,7 @@ export const imgSrc = [
     "mealFour",
     {
       japchae: "japchae",
+      gook: "gook",
       bool: "bool",
       fish: "fish",
       ddok: "ddok",
@@ -47,6 +50,7 @@ export const imgSrc = [
       bool: "bool",
       fish: "fish",
       ddok: "ddok",
+      gook: "gook",
       cookie: "cookie",
       ham: "ham",
       salad: "salad",
