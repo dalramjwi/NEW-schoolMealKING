@@ -41,6 +41,9 @@ async function fetchActiveData() {
     const data = await response.json();
     const { nameOne, nameTwo, nameThree } = data;
     console.log("메뉴 : ", nameOne, nameTwo, nameThree);
+    appendImg(nameOne);
+    appendImg(nameTwo);
+    appendImg(nameThree);
   } catch (error) {
     console.error("Fetch error:", error);
   }
