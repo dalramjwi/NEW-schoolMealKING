@@ -16,5 +16,7 @@ export function generateImgSrc(divId) {
     } else if (typeof value === "string") {
       return [`./public/img/${value}.png`];
     }
+  } else {
+    return [`./public/img/${divId}.png`];
   }
 }

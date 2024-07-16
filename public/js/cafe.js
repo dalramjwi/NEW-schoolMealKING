@@ -73,15 +73,19 @@ console.log(generateImgSrcByMenuName("떡"));
 const foodImgArr = imgSrc.filter((element) => {
   return element[0].includes("meal");
 });
-console.log(foodImgArr);
 
 function appendImg(menuName) {
   const engName = generateImgSrcByMenuName(menuName);
-  //배열 메서드를 통해 engName이 포함되어 있는 객체의 key 값과 해당 engName 반환, 또한 객체의 key값을 배열에서 제거한다.
+  //배열 메서드를 통해 engName이 포함되어 있는 객체의 key 값과 해당 engName 반환,
+  //또한 객체의 key값을 배열에서 제거한다.
   for (let i = 0; i < foodImgArr.length; i++) {
-    if (Object.keys(foodImgArr[i][1]) === engName) console.log([i]);
-    console.log("안녕");
-    return i;
+    const keys = Object.keys(foodImgArr[i][1]);
+    if (keys.includes(engName)) {
+      const parentDiv = document.getElementById(foodImgArr[i][0]);
+      const imgSrc = generateImgSrc(engName);
+      createAndAppendImg(imgSrc, parentDiv, "");
+      break;
+    }
   }
 }
 console.log(foodImgArr);
