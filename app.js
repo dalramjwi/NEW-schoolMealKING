@@ -21,6 +21,10 @@ app.use(express.json());
 app.get("/", function (req, res) {
   res.send(m.componentAssemble.main);
 });
+// 새로운 GET 요청 핸들러 추가
+app.get("/menu", function (req, res) {
+  res.send(m.componentAssemble.menu);
+});
 app.post("/menu", function (req, res) {
   res.send(m.componentAssemble.menu);
 });
