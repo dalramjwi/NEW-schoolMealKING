@@ -27,8 +27,6 @@ const work = async () => {
     await insertBaseData(); // 데이터 삽입 완료를 기다림
   } catch (error) {
     console.error("오류 : ", error);
-  } finally {
-    db.close(); // 모든 비동기 작업이 완료된 후 데이터베이스 닫기
   }
 };
 
