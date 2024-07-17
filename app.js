@@ -161,6 +161,8 @@ app.post("/return", (req, res) => {
         .status(500)
         .json({ success: false, message: "Data processing error" });
     }
+  } else if (key === "randomPage") {
+    //random으로 page 송출
   } else {
     res.status(400).json({ success: false, message: "Invalid key" }); // 잘못된 'key' 값에 대해 오류 응답
   }
