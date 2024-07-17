@@ -47,6 +47,18 @@ async function fetchActiveData() {
     appendImg(nameOne);
     appendImg(nameTwo);
     appendImg(nameThree);
+    //if문을 통해 turn이 1이면 dayOne, turn이 2면 dayTwo 삽입하는 방식
+    if (turn == 1) {
+      createAndAppendImg(generateImgSrc("dayOne"), show, "day");
+    } else if (turn == 2) {
+      createAndAppendImg(generateImgSrc("dayTwo"), show, "day");
+    } else if (turn == 3) {
+      createAndAppendImg(generateImgSrc("dayThree"), show, "day");
+    } else if (turn == 4) {
+      createAndAppendImg(generateImgSrc("dayFour"), show, "day");
+    } else if (turn == 5) {
+      createAndAppendImg(generateImgSrc("dayFive"), show, "day");
+    }
   } catch (error) {
     console.error("Fetch error:", error);
   }

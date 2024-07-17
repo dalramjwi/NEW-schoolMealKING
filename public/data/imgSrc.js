@@ -1,5 +1,14 @@
 export const imgSrc = [
-  ["show", "dayOne"],
+  [
+    "show",
+    {
+      dayOne: "dayOne",
+      dayTwo: "dayTwo",
+      dayThree: "dayThree",
+      dayFour: "dayFour",
+      dayFive: "dayFive",
+    },
+  ],
   ["human", { base: "base", happy: "happy", sad: "sad" }],
   ["food", "sik"],
   [
