@@ -126,7 +126,9 @@ setTimeout(() => {
       if (key === "goToFirst") {
         window.location.href = "/menu";
       } else {
-        root.innerHTML = html;
+        document.open();
+        document.write(html); // HTML을 현재 문서로 작성
+        document.close();
       }
     })
     .catch((error) => {
