@@ -3,6 +3,7 @@ const m = require("./src/module_assemble.js");
 const database = require("sqlite3").verbose();
 const createDb = require("./src/my_module/db_module/createDb.js");
 const insertDb = require("./src/my_module/db_module/insertDb.js");
+const work = require("./database.js");
 // 데이터베이스 연결
 const db = new database.Database(`./database/school.db`, (err) => {
   if (err) {
@@ -15,7 +16,7 @@ const activeCreate = createDb(db, "active", "nameOne", "nameTwo", "nameThree");
 
 // 빈 객체 `result` 정의
 let result = { hpointAll: 0, ypointAll: 0 };
-
+work();
 app.use("/public", express.static("public"));
 app.use(express.json());
 app.get("/", function (req, res) {
@@ -62,11 +63,11 @@ app.post("/cafe", async function (req, res) {
       result.ypointAll = row.totalYpoint;
       console.log(result);
       //!active 테이블의 row 값을 조회해 turn 값으로 지정한다.
-      db.get(`SELECT turn FROM sum`, async (err, row) => {
+      db.get(`SELECT COUNT(*) AS rowCount FROM active`, async (err, row) => {
         if (err) {
           throw err;
         }
-        const currentTurn = row;
+        const currentTurn = row.rowCount;
         await insertDb(
           db,
           "sum",
