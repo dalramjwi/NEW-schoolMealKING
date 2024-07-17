@@ -17,6 +17,7 @@ const activeCreate = createDb(db, "active", "nameOne", "nameTwo", "nameThree");
 // 빈 객체 `result` 정의
 let result = { hpointAll: 0, ypointAll: 0 };
 work();
+await activeCreate;
 app.use("/public", express.static("public"));
 app.use(express.json());
 app.get("/", function (req, res) {
@@ -34,7 +35,6 @@ app.post("/cafe", async function (req, res) {
   console.log("Received data:", parsedData);
   try {
     // `active` 테이블 생성
-    await activeCreate;
 
     // `active` 테이블에 데이터 삽입
     await insertDb(db, "active", parsedData[0], parsedData[1], parsedData[2]);
