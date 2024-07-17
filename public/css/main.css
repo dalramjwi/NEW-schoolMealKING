@@ -70,4 +70,8 @@
 #letter.open #page {
   opacity: 1; /* 클릭 시 보임 */
   transform: translate(-50%, -50%); /* 쏙 올라오는 애니메이션 */
+  overflow: auto;
+}
+#text {
+  padding: 1vw;
 }
