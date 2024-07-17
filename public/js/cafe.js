@@ -112,6 +112,7 @@ setTimeout(() => {
     //랜덤 페이지 출현
     key = "randomPage";
   } else if (turnArr == "5") {
+    //마지막 페이지
     key = "end";
   } else {
     key = "goToFirst";
