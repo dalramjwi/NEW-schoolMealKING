@@ -103,14 +103,13 @@ setTimeout(() => {
   //3이면 호감도 확인 페이지 (이벤트 2개 : db 조회해서 hpoint 일정 수준 이상이면 page1, 이하면 page2, 그 후 setTimeout)
   //4면 랜덤페이지 출현, 그 후 effect 주기:
   let key = "";
-  if (turnArr === "3") {
+  if (turnArr == "3") {
     //호감도 확인 페이지 전송
     key = "hpointCheck";
-  }
-  if (turnArr === "4") {
+  } else if (turnArr == "4") {
     //랜덤 페이지 출현
     key = "randomPage";
-  } else if (turnArr === "5") {
+  } else if (turnArr == "5") {
     key = "end";
   } else {
     key = "goToFirst";
