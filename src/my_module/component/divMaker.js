@@ -55,5 +55,14 @@ const divMaker = {
     const cafeLine = tagIdMaker("div", "line", show);
     return cafeLine + space + divMaker.bLine;
   },
+  hpointRootContent: () => {
+    const textOne = tagIdMaker("div", "textOne");
+    const textTwo = tagIdMaker("div", "textTwo");
+    const childOne = tagIdMaker("div", "childOne");
+    const childTwo = tagIdMaker("div", "childTwo");
+    return (
+      divMaker.line + textOne + textTwo + childOne + childTwo + divMaker.bLine
+    );
+  },
 };
 module.exports = divMaker;

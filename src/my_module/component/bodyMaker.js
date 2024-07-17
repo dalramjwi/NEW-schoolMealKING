@@ -10,6 +10,6 @@ const body = {
   mainBody: bodyMaker(divMaker.root(divMaker.mainRootContent())),
   menuBody: bodyMaker(divMaker.root(divMaker.menuRootContent())),
   cafeBody: bodyMaker(divMaker.root(divMaker.cafeRootContent())),
-  hpoinCheck: bodyMaker(divMaker.root(divMaker.hpoinRootContent())),
+  hpoinCheckBody: bodyMaker(divMaker.root(divMaker.hpointRootContent())),
 };
 module.exports = body;
