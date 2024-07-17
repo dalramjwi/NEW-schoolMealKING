@@ -137,4 +137,4 @@ setTimeout(() => {
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
     });
-}, 15000);
+}, 10000);
