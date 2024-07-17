@@ -124,6 +124,17 @@ app.post("/return", (req, res) => {
   console.log(key);
   if (key === "goToFirst") {
     res.json({ success: true, message: "Redirecting to /menu" });
+  } else if (key === "hpointCheck") {
+    //sum 테이블의 row 3까지의 hpointAll의 값을 총 합 한뒤
+    //hpoint가 15이상이라면 hpoint는 true, 그 이하라면 false로 처리
+    hpoint = true;
+    //hpoinCheck 후 hpoint가 일정 이상이라면 긍정 반응 송출
+    if (hpoint) {
+      res.send(m.componentAssemble.hpoinCheck1);
+    } else {
+      //hpoinCheck 후 hpoint가 일정 이상이라면 부정 반응 송출
+      res.send(m.componentAssemble.hpoinCheck0);
+    }
   } else {
     res.status(400).json({ success: false, message: "Invalid key" }); // 잘못된 'key' 값에 대해 오류 응답
   }
