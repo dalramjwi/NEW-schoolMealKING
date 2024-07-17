@@ -19,11 +19,11 @@ const componentAssemble = {
     body.cafeBody +
     end.baseEnd("public/js/cafe"),
   hpoinCheck0:
-    top.baseTop("hpoinCheck0", "public/css/hpoinCheck") +
+    top.baseTop("hpoinCheck0", "public/css/hpointCheck") +
     body.hpoinCheckBody +
     end.baseEnd("public/js/hpoinCheck"),
   hpoinCheck1:
-    top.baseTop("hpoinCheck1", "public/css/hpoinCheck") +
+    top.baseTop("hpoinCheck1", "public/css/hpointCheck") +
     body.hpoinCheckBody +
     end.baseEnd("public/js/hpoinCheck"),
 };
