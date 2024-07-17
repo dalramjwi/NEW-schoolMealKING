@@ -120,11 +120,14 @@ setTimeout(() => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      return response.json();
+      return response.text();
     })
-    .then((data) => {
-      // 2. 페이지 이동 부분
-      window.location.href = "/menu"; // POST 요청 후 이동할 페이지 URL
+    .then((html) => {
+      if (key === "goToFirst") {
+        window.location.href = "/menu";
+      } else {
+        root.innerHTML = html;
+      }
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
