@@ -125,15 +125,41 @@ app.post("/return", (req, res) => {
   if (key === "goToFirst") {
     res.json({ success: true, message: "Redirecting to /menu" });
   } else if (key === "hpointCheck") {
-    //sum 테이블의 row 3까지의 hpointAll의 값을 총 합 한뒤
-    //hpoint가 15이상이라면 hpoint는 true, 그 이하라면 false로 처리
-    hpoint = true;
-    //hpoinCheck 후 hpoint가 일정 이상이라면 긍정 반응 송출
-    if (hpoint) {
-      res.send(m.componentAssemble.hpoinCheck1);
-    } else {
-      //hpoinCheck 후 hpoint가 일정 이상이라면 부정 반응 송출
-      res.send(m.componentAssemble.hpoinCheck0);
+    try {
+      // sum 테이블의 hpointAll의 첫 3개의 값을 총 합한 뒤
+      const query = `
+        SELECT SUM(hpointAll) AS totalHpointAll 
+        FROM (
+          SELECT hpointAll 
+          FROM sum 
+          ORDER BY ROWID ASC 
+          LIMIT 3
+        )
+      `;
+      db.get(query, (err, row) => {
+        if (err) {
+          throw err;
+        }
+
+        const totalHpointAll = row.totalHpointAll;
+        console.log("총 HpointAll:", totalHpointAll);
+
+        // hpointAll의 총 합이 16 이상이라면 true, 그 이하라면 false로 처리
+        const hpoint = totalHpointAll >= 16;
+        console.log("Hpoint가 16 이상인가?:", hpoint);
+
+        // hpoint 값에 따라 긍정 또는 부정 반응 송출
+        if (hpoint) {
+          res.send(m.componentAssemble.hpoinCheck1);
+        } else {
+          res.send(m.componentAssemble.hpoinCheck0);
+        }
+      });
+    } catch (error) {
+      console.error("오류 발생:", error);
+      res
+        .status(500)
+        .json({ success: false, message: "Data processing error" });
     }
   } else {
     res.status(400).json({ success: false, message: "Invalid key" }); // 잘못된 'key' 값에 대해 오류 응답

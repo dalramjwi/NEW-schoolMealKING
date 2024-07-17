@@ -30,6 +30,5 @@ const work = async () => {
   }
 };
 
-work();
 // insertActiveData();
 module.exports = work;
