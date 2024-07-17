@@ -25,13 +25,10 @@ setTimeout(() => {
   const title = document.title;
   // title에 0이 포함되어 있으면 human 이미지를 sad로 변경
   if (title.includes("0")) {
-    console.log("setTimout: !!0!!" + title);
     human.querySelector("img").src = generateImgSrc("human")[2];
   }
   // title에 1이 포함되어 있으면 human 이미지를 happy로 변경
   else if (title.includes("1")) {
-    console.log("setTimout: !!1!!" + title);
-
     human.querySelector("img").src = generateImgSrc("human")[1];
   }
 }, 5000); // 5초 후에 실행
@@ -47,8 +44,6 @@ async function fetchActiveData() {
     const { nameOne, nameTwo, nameThree } = data.row;
     const turn = data.currentTurn;
     turnArr = turn;
-    console.log(turnArr);
-    console.log("메뉴 : ", nameOne, nameTwo, nameThree);
     appendImg(nameOne);
     appendImg(nameTwo);
     appendImg(nameThree);
@@ -68,15 +63,11 @@ function generateImgSrcByMenuName(menuName) {
     // 일치하는 경우 result에 해당 배열의 두 번째 값을 저장
     if (nameKor === menuName) {
       result = nameEng;
-      console.log(result);
       //result 값을 반환
     }
   });
   return result;
 }
-console.log(generateImgSrcByMenuName("떡"));
-// console.log(combinedArray);
-// console.log(imgSrc);
 //imgSrc 배열을 이용한 mealOne, Two, Three, Four, Five의 키만 가진 배열 생성
 const foodImgArr = imgSrc.filter((element) => {
   return element[0].includes("meal");
