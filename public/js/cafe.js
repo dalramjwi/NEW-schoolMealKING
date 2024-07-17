@@ -92,6 +92,9 @@ function appendImg(menuName) {
 //조건문 작성 => tilte 감지해서 3이면 이벤트로, 5이면 종료로 연결
 setTimeout(() => {
   // 1. POST 요청을 보내는 부분
+  //active db의 row를 조회해서, 혹은 turn을 조회해서 3이하이면 return 주소 보내고
+  //3이면 호감도 확인 페이지 (이벤트 2개 : db 조회해서 hpoint 일정 수준 이상이면 page1, 이하면 page2, 그 후 setTimeout)
+  //4면 랜덤페이지 출현, 그 후 effect 주기:
   fetch("/return", {
     method: "POST", // POST 요청
     headers: {

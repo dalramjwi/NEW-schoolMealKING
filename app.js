@@ -61,6 +61,7 @@ app.post("/cafe", async function (req, res) {
       result.hpointAll = row.totalHpoint;
       result.ypointAll = row.totalYpoint;
       console.log(result);
+      //active 테이블의 row 값을 조회해 turn 값으로 지정한다.
       await insertDb(db, "sum", result.hpointAll, result.ypointAll, 1);
       if (result.hpointAll >= 5) {
         res.send(m.componentAssemble.cafe1);
