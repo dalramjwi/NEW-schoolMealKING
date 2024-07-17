@@ -54,3 +54,23 @@
   position: absolute;
   top: 63vh;
 }
+#mealOne > img {
+  position: absolute;
+  top: 64vh;
+  left: 38vh;
+  z-index: 5;
+  width: 16vh;
+}
+#mealTwo > img {
+  top: 79vh;
+  left: 56vh;
+  z-index: 5;
+  width: 7vh;
+}
+#mealThree > img {
+  position: absolute;
+  top: 80vh;
+  left: 48vh;
+  z-index: 5;
+  width: 8vh;
+}
