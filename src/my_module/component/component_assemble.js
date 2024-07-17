@@ -18,5 +18,13 @@ const componentAssemble = {
     top.baseTop("cafe1", "public/css/cafe") +
     body.cafeBody +
     end.baseEnd("public/js/cafe"),
+  hpoinCheck0:
+    top.baseTop("hpoinCheck0", "public/css/hpoinCheck") +
+    body.hpoinCheckBody +
+    end.baseEnd("public/js/hpoinCheck"),
+  hpoinCheck1:
+    top.baseTop("hpoinCheck1", "public/css/hpoinCheck") +
+    body.hpoinCheckBody +
+    end.baseEnd("public/js/hpoinCheck"),
 };
 module.exports = componentAssemble;
