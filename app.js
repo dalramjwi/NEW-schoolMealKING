@@ -93,6 +93,7 @@ app.get("/cafeData", (req, res) => {
   const query = `
     SELECT nameOne, nameTwo, nameThree
     FROM active
+    ORDER BY ROWID DESC
     LIMIT 1
   `;
 
