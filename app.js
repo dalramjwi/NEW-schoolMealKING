@@ -17,10 +17,10 @@ const activeCreate = createDb(db, "active", "nameOne", "nameTwo", "nameThree");
 // 빈 객체 `result` 정의
 let result = { hpointAll: 0, ypointAll: 0 };
 work();
-await activeCreate;
 app.use("/public", express.static("public"));
 app.use(express.json());
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
+  await activeCreate;
   res.send(m.componentAssemble.main);
 });
 // 새로운 GET 요청 핸들러 추가
@@ -105,14 +105,22 @@ app.get("/cafeData", (req, res) => {
       return;
     }
     // 4. 성공적으로 데이터를 가져온 경우: 데이터를 JSON 형태로 클라이언트에 응답함
-    res.json(row);
+    //추가적으로 active의 row 값 조회해 그 값 또한 전송
+    db.get(`SELECT COUNT(*) AS rowCount FROM active`, async (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      const currentTurn = rows.rowCount;
+      const data = { row: row, currentTurn: currentTurn };
+      res.json(data);
+    });
   });
 });
 // '/return' 경로에 대한 POST 요청 처리
 app.post("/return", (req, res) => {
   const { key } = req.body; // 요청 본문에서 'key' 값을 추출
-
   // 'key' 값에 따라 적절한 응답을 전송
+  console.log(key);
   if (key === "goToFirst") {
     res.json({ success: true, message: "Redirecting to /menu" });
   } else {

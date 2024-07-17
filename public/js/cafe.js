@@ -14,6 +14,8 @@ const mealTwo = document.getElementById("mealTwo");
 const mealThree = document.getElementById("mealThree");
 const mealFour = document.getElementById("mealFour");
 const mealFive = document.getElementById("mealFive");
+let turnArr = "";
+console.log(turnArr);
 //기본 img 설정
 createImgData().forEach(({ src, parent, alt }) => {
   createAndAppendImg(src, parent, alt);
@@ -35,11 +37,15 @@ setTimeout(() => {
 async function fetchActiveData() {
   try {
     const response = await fetch("/cafeData");
+    // 조회한 turn값
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    const { nameOne, nameTwo, nameThree } = data;
+    const { nameOne, nameTwo, nameThree } = data.row;
+    const turn = data.currentTurn;
+    turnArr = turn;
+    console.log(turnArr);
     console.log("메뉴 : ", nameOne, nameTwo, nameThree);
     appendImg(nameOne);
     appendImg(nameTwo);
@@ -92,15 +98,30 @@ function appendImg(menuName) {
 //조건문 작성 => tilte 감지해서 3이면 이벤트로, 5이면 종료로 연결
 setTimeout(() => {
   // 1. POST 요청을 보내는 부분
+  //
   //active db의 row를 조회해서, 혹은 turn을 조회해서 3이하이면 return 주소 보내고
   //3이면 호감도 확인 페이지 (이벤트 2개 : db 조회해서 hpoint 일정 수준 이상이면 page1, 이하면 page2, 그 후 setTimeout)
   //4면 랜덤페이지 출현, 그 후 effect 주기:
+  let key = "";
+  if (turnArr === "3") {
+    //호감도 확인 페이지 전송
+    key = "hpointCheck";
+  }
+  if (turnArr === "4") {
+    //랜덤 페이지 출현
+    key = "randomPage";
+  } else if (turnArr === "5") {
+    key = "end";
+  } else {
+    key = "goToFirst";
+  }
+
   fetch("/return", {
     method: "POST", // POST 요청
     headers: {
       "Content-Type": "application/json", // JSON 데이터 전송
     },
-    body: JSON.stringify({ key: "goToFirst" }), // 요청 본문, JSON 형식
+    body: JSON.stringify({ key: key }), // 요청 본문, JSON 형식
   })
     .then((response) => {
       if (!response.ok) {
