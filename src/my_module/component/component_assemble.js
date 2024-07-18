@@ -19,12 +19,12 @@ const componentAssemble = {
     body.cafeBody +
     end.baseEnd("public/js/cafe"),
   hpoinCheck0:
-    top.baseTop("hpoinCheck0", "public/css/hpointCheck") +
+    top.baseTop("hpointCheck0", "public/css/hpointCheck") +
     body.hpoinCheckBody +
-    end.baseEnd("public/js/hpoinCheck"),
+    end.baseEnd("public/js/hpointCheck"),
   hpoinCheck1:
-    top.baseTop("hpoinCheck1", "public/css/hpointCheck") +
+    top.baseTop("hpointCheck1", "public/css/hpointCheck") +
     body.hpoinCheckBody +
-    end.baseEnd("public/js/hpoinCheck"),
+    end.baseEnd("public/js/hpointCheck"),
 };
 module.exports = componentAssemble;
