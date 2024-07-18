@@ -1,0 +1,33 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+#root > img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+}
+#childOne,
+#childTwo {
+  position: absolute;
+  z-index: 1;
+}
+#childOne > img {
+  position: relative;
+  left: 96%;
+  bottom: -22vh;
+}
+#childTwo > img {
+  position: relative;
+  width: 83%;
+  left: 116%;
+  bottom: -33vh;
+}
+#textOne,
+#textTwo {
+  position: absolute;
+  z-index: 2;
+}
