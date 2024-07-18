@@ -20,7 +20,7 @@ const createDb = (db, tableName, rowOne, rowTwo, rowThree, sum = "0") => {
         if (err) {
           reject(err); // 오류 발생 시 Promise를 reject
         } else {
-          console.log(`${tableName} 생성됨`);
+          // console.log(`${tableName} 생성됨`);
           resolve(); // 성공 시 Promise를 resolve
         }
       }
