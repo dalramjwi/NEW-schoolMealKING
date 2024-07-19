@@ -6,7 +6,6 @@
   width: 100vw;
   height: 100vh;
   background-image: url("../img/background.png");
-  background-repeat: no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -30,12 +29,14 @@
 #food {
   display: flex;
   justify-content: center;
+  position: absolute;
+  height: 39vh;
+  top: 58vh;
 }
 #food > img {
   position: absolute;
-  width: 25vw;
-  height: 22vw;
-  top: 65vh;
+  width: 23vw;
+  height: 19vw;
 }
 #human {
   display: flex;
@@ -50,27 +51,42 @@
 #desk {
   background: gray;
   width: 100vw;
-  height: 37vh;
+  height: 43vh;
   position: absolute;
-  top: 63vh;
+  top: 57vh;
 }
 #mealOne > img {
   position: absolute;
-  top: 64vh;
-  left: 38vh;
-  z-index: 5;
-  width: 16vh;
+  top: 5.5vh;
+  right: 1.25vw;
+  z-index: 7;
+  width: 17vh;
 }
 #mealTwo > img {
-  top: 79vh;
-  left: 56vh;
+  top: 5.5vh;
+  left: 1.25vw;
   z-index: 5;
-  width: 7vh;
+  width: 17vh;
+  position: absolute;
 }
 #mealThree > img {
   position: absolute;
-  top: 80vh;
-  left: 48vh;
+  top: 26vh;
+  right: -1.5vw;
   z-index: 5;
-  width: 8vh;
+  width: 6vh;
+}
+#mealFour > img {
+  position: absolute;
+  top: 26vh;
+  right: 5.5vw;
+  z-index: 5;
+  width: 6vh;
+}
+#mealFive > img {
+  position: absolute;
+  top: 26vh;
+  right: -8vw;
+  z-index: 5;
+  width: 6vh;
 }
