@@ -18,7 +18,7 @@ module.exports = function (db) {
    * @param {Object} req - 요청 객체
    * @param {Object} res - 응답 객체
    */
-  router.post("/return", (req, res) => {
+  router.post("/", (req, res) => {
     const { key } = req.body;
     console.log(key);
 

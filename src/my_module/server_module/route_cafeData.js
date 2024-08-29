@@ -17,7 +17,7 @@ module.exports = function (db) {
    * @param {Object} req - 요청 객체
    * @param {Object} res - 응답 객체
    */
-  router.get("/cafeData", (req, res) => {
+  router.get("/", (req, res) => {
     // 'active' 테이블에서 최근에 삽입된 데이터를 조회하는 쿼리
     const query = `
       SELECT nameOne, nameTwo, nameThree

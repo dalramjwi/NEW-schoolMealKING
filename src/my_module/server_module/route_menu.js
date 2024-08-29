@@ -14,7 +14,7 @@ const router = express.Router();
  * @param {Object} req - 요청 객체
  * @param {Object} res - 응답 객체
  */
-router.get("/menu", (req, res) => {
+router.get("/", (req, res) => {
   res.send(m.componentAssemble.menu);
 });
 
@@ -26,7 +26,7 @@ router.get("/menu", (req, res) => {
  * @param {Object} req - 요청 객체
  * @param {Object} res - 응답 객체
  */
-router.post("/menu", (req, res) => {
+router.post("/", (req, res) => {
   res.send(m.componentAssemble.menu);
 });
 

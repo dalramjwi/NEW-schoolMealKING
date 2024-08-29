@@ -18,7 +18,7 @@ module.exports = function (db, result) {
    * @param {Object} req - 요청 객체
    * @param {Object} res - 응답 객체
    */
-  router.post("/cafe", async (req, res) => {
+  router.post("/", async (req, res) => {
     const parsedData = req.body;
     console.log("선택한 메뉴 : ", parsedData);
 
