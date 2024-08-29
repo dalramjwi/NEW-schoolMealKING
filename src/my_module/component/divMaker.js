@@ -68,6 +68,11 @@ const divMaker = {
     const message = tagIdMaker("div", "message");
     return divMaker.root(message);
   },
+  randomFingerRootContent: () => {
+    const human = tagIdMaker("div", "human");
+    const cookdesk = tagIdMaker("div", "cookdesk");
+    return divMaker.root(human + cookdesk);
+  },
 };
 module.exports = divMaker;
-console.log(divMaker.randomPrincipleRootContent());
+console.log(divMaker.randomFingerRootContent());
