@@ -23,8 +23,8 @@ module.exports = function (db) {
     console.log(key);
 
     // 'goToFirst' 키가 전달된 경우
-    if (key === "goToFirst") {
-      res.json({ success: true, message: "Redirecting to /menu" });
+    if (key === "repeat") {
+      res.json({ success: true, message: "/menu로 연결" });
 
       // 'hpointCheck' 키가 전달된 경우
     } else if (key === "hpointCheck") {

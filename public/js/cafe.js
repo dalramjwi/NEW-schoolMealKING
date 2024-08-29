@@ -114,7 +114,7 @@ setTimeout(() => {
     //마지막 페이지
     key = "end";
   } else {
-    key = "goToFirst";
+    key = "repeat";
   }
 
   fetch("/return", {
@@ -126,12 +126,12 @@ setTimeout(() => {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("res 전송 오류");
       }
       return response.text();
     })
     .then((html) => {
-      if (key === "goToFirst") {
+      if (key === "repeat") {
         window.location.href = "/menu";
       } else {
         document.open();
@@ -140,6 +140,6 @@ setTimeout(() => {
       }
     })
     .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
+      console.error("fetch 오류 발생", error);
     });
 }, 8000);
