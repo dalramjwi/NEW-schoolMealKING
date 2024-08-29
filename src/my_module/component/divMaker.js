@@ -64,5 +64,10 @@ const divMaker = {
       divMaker.line + textOne + textTwo + childOne + childTwo + divMaker.bLine
     );
   },
+  randomPrincipleRootContent: () => {
+    const message = tagIdMaker("div", "message");
+    return divMaker.root(message);
+  },
 };
 module.exports = divMaker;
+console.log(divMaker.randomPrincipleRootContent());
