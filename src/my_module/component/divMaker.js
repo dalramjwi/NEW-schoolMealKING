@@ -75,4 +75,3 @@ const divMaker = {
   },
 };
 module.exports = divMaker;
-console.log(divMaker.randomFingerRootContent());
