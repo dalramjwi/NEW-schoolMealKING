@@ -1,8 +1,9 @@
-const express = require("express");
-const app = express();
-const m = require("./src/module_assemble.js");
-const createDb = require("./src/my_module/db_module/createDb.js");
-const database = require("sqlite3").verbose();
+import express from "express";
+import m from "../../module_assemble.js";
+import createDb from "../../../src/my_module/db_module/createDb.js";
+import sqlite3 from "sqlite3";
+
+const database = sqlite3.verbose();
 const router = express.Router();
 
 /**
