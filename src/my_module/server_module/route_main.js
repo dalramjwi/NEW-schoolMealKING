@@ -3,10 +3,11 @@
  * SQLite3 데이터베이스를 사용하여 'activeCreate' 테이블을 생성하는 기능을 포함한다.
  * 또한, 데이터베이스 연결 및 테이블 생성 작업을 수행하고, 응답으로 컴포넌트를 반환한다.
  */
-import express from "express";
-import m from "../../module_assemble.js";
-import createDb from "../../../src/my_module/db_module/createDb.js";
-import sqlite3 from "sqlite3";
+const express = require("express");
+const sqlite3 = require("sqlite3");
+
+const m = require("../../module_assemble.js");
+const createDb = require("../db_module/createDb.js");
 
 const database = sqlite3.verbose();
 const router = express.Router();

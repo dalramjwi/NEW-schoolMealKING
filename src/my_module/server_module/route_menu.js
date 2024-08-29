@@ -2,9 +2,8 @@
  * 이 파일은 Express 라우터를 정의해서 메뉴와 관련된 GET 및 POST 요청을 처리하는 역할
  * 클라이언트가 특정 엔드포인트로 요청을 보내면, 해당 요청에 맞는 메뉴 컴포넌트를 응답한다.
  */
-import express from "express";
-import m from "../../module_assemble.js";
-
+const express = require("express");
+const m = require("../../module_assemble.js"); // require로 모듈을 불러옵니다.
 const router = express.Router();
 
 /**
@@ -31,4 +30,4 @@ router.post("/menu", (req, res) => {
   res.send(m.componentAssemble.menu);
 });
 
-export default router;
+module.exports = router;

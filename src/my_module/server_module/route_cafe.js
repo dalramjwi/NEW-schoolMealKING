@@ -3,23 +3,11 @@
  * SQLite3 데이터베이스에 선택된 메뉴를 저장한다.
  * 데이터베이스와의 상호작용을 통해 메뉴 선택에 따른 포인트를 계산하고, 해당 결과에 따라 컴포넌트를 달리 반환한다.
  */
-import express from "express";
-import { Database } from "sqlite3";
-import m from "../../module_assemble.js";
-const insertDb = require("./src/my_module/db_module/insertDb.js");
+const express = require("express");
+const insertDb = require("../db_module/insertDb.js"); // require로 모듈을 불러옵니다.
+const m = require("../../module_assemble.js"); // require로 모듈을 불러옵니다.
 
-interface Result {
-  hpointAll: number;
-  ypointAll: number;
-}
-
-interface Row {
-  totalHpoint: number;
-  totalYpoint: number;
-  rowCount?: number;
-}
-
-export default function (db: Database, result: Result) {
+module.exports = function (db, result) {
   const router = express.Router();
 
   /**
@@ -53,7 +41,7 @@ export default function (db: Database, result: Result) {
       `;
 
       // 쿼리 결과를 가져와서 총 hpoint와 ypoint를 업데이트함
-      db.get(selectQuery, async (err: Error | null, row: Row) => {
+      db.get(selectQuery, async (err, row) => {
         if (err) {
           throw err;
         }
@@ -63,27 +51,23 @@ export default function (db: Database, result: Result) {
         console.log(result);
 
         // 'active' 테이블의 총 행 수를 가져와서 현재 턴을 계산함
-        db.get(
-          `SELECT COUNT(*) AS rowCount FROM active`,
-          async (err: Error | null, row: Row) => {
-            if (err) {
-              throw err;
-            }
-
-            // row.rowCount가 undefined일 경우 0을 기본값으로 설정함
-            // 쿼리 결과로 얻은 'active' 테이블의 행 수(rowCount)를 currentTurn에 저장함
-            const currentTurn = row.rowCount || 0;
-
-            // 'sum' 테이블에 총 hpoint, ypoint, 그리고 currentTurn 값을 저장함
-            await insertDb(
-              db, // 데이터베이스 인스턴스
-              "sum", // 데이터를 삽입할 테이블 이름
-              result.hpointAll, // 총 hpoint 값
-              result.ypointAll, // 총 ypoint 값
-              currentTurn // 계산된 현재 턴(즉, 'active' 테이블의 총 행 수)
-            );
+        db.get(`SELECT COUNT(*) AS rowCount FROM active`, async (err, row) => {
+          if (err) {
+            throw err;
           }
-        );
+
+          // row.rowCount가 undefined일 경우 0을 기본값으로 설정함
+          const currentTurn = row.rowCount || 0;
+
+          // 'sum' 테이블에 총 hpoint, ypoint, 그리고 currentTurn 값을 저장함
+          await insertDb(
+            db, // 데이터베이스 인스턴스
+            "sum", // 데이터를 삽입할 테이블 이름
+            result.hpointAll, // 총 hpoint 값
+            result.ypointAll, // 총 ypoint 값
+            currentTurn // 계산된 현재 턴(즉, 'active' 테이블의 총 행 수)
+          );
+        });
 
         // 총 hpoint가 5 이상이면 'cafe1' 컴포넌트를, 그렇지 않으면 'cafe0' 컴포넌트를 반환함
         if (result.hpointAll >= 5) {
@@ -100,4 +84,4 @@ export default function (db: Database, result: Result) {
   });
 
   return router;
-}
+};

@@ -4,10 +4,9 @@
  * 데이터베이스와의 상호작용을 통해 급식 메뉴와 관련된 정보를 제공하며, 현재 턴의 정보를 함께 반환한다.
  */
 
-import express from "express";
-import { Database } from "sqlite3";
+const express = require("express");
 
-export default function (db: Database) {
+module.exports = function (db) {
   const router = express.Router();
 
   /**
@@ -36,23 +35,20 @@ export default function (db: Database) {
       }
 
       // 'active' 테이블의 총 행 수를 조회하는 쿼리
-      db.get<{ rowCount: number }>(
-        `SELECT COUNT(*) AS rowCount FROM active`,
-        (err, rowCountRow) => {
-          if (err) {
-            console.error("쿼리 실행 오류:", err);
-            res.status(500).json({ success: false, message: "Query error" });
-            return;
-          }
-
-          // 조회된 데이터와 현재 턴 정보를 함께 응답으로 반환
-          const currentTurn = rowCountRow.rowCount;
-          const data = { row: row, currentTurn: currentTurn };
-          res.json(data);
+      db.get(`SELECT COUNT(*) AS rowCount FROM active`, (err, rowCountRow) => {
+        if (err) {
+          console.error("쿼리 실행 오류:", err);
+          res.status(500).json({ success: false, message: "Query error" });
+          return;
         }
-      );
+
+        // 조회된 데이터와 현재 턴 정보를 함께 응답으로 반환
+        const currentTurn = rowCountRow.rowCount;
+        const data = { row: row, currentTurn: currentTurn };
+        res.json(data);
+      });
     });
   });
 
   return router;
-}
+};
