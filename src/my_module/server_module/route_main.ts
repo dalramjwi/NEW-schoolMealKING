@@ -1,3 +1,8 @@
+/**
+ * 이 파일은 Express 라우터를 정의하여 기본 경로에 대한 GET 요청을 처리하고,
+ * SQLite3 데이터베이스를 사용하여 'activeCreate' 테이블을 생성하는 기능을 포함한다.
+ * 또한, 데이터베이스 연결 및 테이블 생성 작업을 수행하고, 응답으로 컴포넌트를 반환한다.
+ */
 import express from "express";
 import m from "../../module_assemble.js";
 import createDb from "../../../src/my_module/db_module/createDb.js";
