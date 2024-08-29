@@ -1,3 +1,8 @@
+/**
+ * 이 파일은 Express 라우터를 정의하여 급식 메뉴와 관련된 POST 요청을 처리하고,
+ * SQLite3 데이터베이스에 선택된 메뉴를 저장한다.
+ * 데이터베이스와의 상호작용을 통해 메뉴 선택에 따른 포인트를 계산하고, 해당 결과에 따라 컴포넌트를 달리 반환한다.
+ */
 import express from "express";
 import { Database } from "sqlite3";
 import m from "../../module_assemble.js";
