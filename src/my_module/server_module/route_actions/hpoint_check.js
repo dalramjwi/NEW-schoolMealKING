@@ -1,4 +1,4 @@
-const m = require("../../module_assemble.js");
+const m = require("../../../module_assemble.js");
 
 /**
  * Hpoint를 계산하고 적절한 컴포넌트를 반환하는 동작 수행
