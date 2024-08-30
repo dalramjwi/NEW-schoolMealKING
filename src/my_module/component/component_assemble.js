@@ -31,7 +31,7 @@ const componentAssemble = {
     body.randomPrincipleBody +
     end.baseEnd("public/js/main"),
   randomFinger:
-    top.baseTop("main", "public/css/main") +
+    top.baseTop("main", "public/css/randomFinger") +
     body.randomFingerBody +
     end.baseEnd("public/js/main"),
   randomrefrigeator:
