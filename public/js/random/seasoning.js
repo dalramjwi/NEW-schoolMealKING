@@ -7,7 +7,7 @@ setTimeout(() => {
   const messageDiv = document.createElement("div");
 
   // div에 텍스트 추가
-  messageDiv.innerText = "음식이 상했다.";
+  messageDiv.innerText = "조미료를 발견했다.";
 
   // div를 화면에 추가 (body에 추가하거나 특정 부모 요소에 추가 가능)
   document.body.appendChild(messageDiv);
