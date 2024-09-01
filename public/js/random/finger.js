@@ -31,7 +31,7 @@ fetch("/finger", {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    event: "fingerCut",
+    event: "finger",
     effect: "menuLock",
   }),
 });
