@@ -36,11 +36,13 @@ app.use("/return", routeReturn(db));
 // 손가락 베임 이벤트 처리 엔드포인트
 app.post("/finger", (req, res) => {
   const { event, effect } = req.body;
-  console.log("손가락 베임 이벤트 - event:", event);
-  console.log("손가락 베임 이벤트 - effect:", effect);
 
-  // 응답을 JSON으로 반환
-  res.json({ message: "손가락 베임 이벤트 처리 완료" });
+  // 요청 데이터에 따라 응답 처리
+  if (event === "finger") {
+    res.json({ success: true, message: "finger" });
+  } else {
+    res.json({ success: false, message: "unknown event" });
+  }
 });
 
 // 교장 선생님 이벤트 처리 엔드포인트
