@@ -2,7 +2,6 @@ import { redirectPage } from "../../js_module/setTimeout.js";
 
 redirectPage("/menu", 5000);
 
-// 2초 후에 "음식이 상했다."라는 메시지를 가진 div 창 생성
 setTimeout(() => {
   // 새로운 div 요소 생성
   const messageDiv = document.createElement("div");
@@ -24,3 +23,15 @@ setTimeout(() => {
   messageDiv.style.borderRadius = "5px";
   messageDiv.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.1)";
 }, 2000);
+
+// 손가락 이벤트 발생을 서버로 알리기 위한 fetch 요청
+fetch("/finger", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    event: "fingerCut",
+    effect: "menuLock",
+  }),
+});
