@@ -33,6 +33,45 @@ app.use("/menu", routeMenu);
 app.use("/cafe", routeCafe(db, result));
 app.use("/cafeData", routeCafeData(db));
 app.use("/return", routeReturn(db));
+// 손가락 베임 이벤트 처리 엔드포인트
+app.post("/finger", (req, res) => {
+  const { event, effect } = req.body;
+  console.log("손가락 베임 이벤트 - event:", event);
+  console.log("손가락 베임 이벤트 - effect:", effect);
+
+  // 응답을 JSON으로 반환
+  res.json({ message: "손가락 베임 이벤트 처리 완료" });
+});
+
+// 교장 선생님 이벤트 처리 엔드포인트
+app.post("/principle", (req, res) => {
+  const { event, effect } = req.body;
+  console.log("교장 선생님 이벤트 - event:", event);
+  console.log("교장 선생님 이벤트 - effect:", effect);
+
+  // 응답을 JSON으로 반환
+  res.json({ message: "교장 선생님 이벤트 처리 완료" });
+});
+
+// 냉장고 고장 이벤트 처리 엔드포인트
+app.post("/refrige", (req, res) => {
+  const { event, effect } = req.body;
+  console.log("냉장고 고장 이벤트 - event:", event);
+  console.log("냉장고 고장 이벤트 - effect:", effect);
+
+  // 응답을 JSON으로 반환
+  res.json({ message: "냉장고 고장 이벤트 처리 완료" });
+});
+
+// 조미료 발견 이벤트 처리 엔드포인트
+app.post("/seasoning", (req, res) => {
+  const { event, effect } = req.body;
+  console.log("조미료 발견 이벤트 - event:", event);
+  console.log("조미료 발견 이벤트 - effect:", effect);
+
+  // 응답을 JSON으로 반환
+  res.json({ message: "조미료 발견 이벤트 처리 완료" });
+});
 
 // 에러 처리 미들웨어
 app.use(function (err, req, res, next) {
