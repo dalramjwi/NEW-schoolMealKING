@@ -8,7 +8,7 @@
  * 5초 후에 "/menu"로 리다이렉트
  * setTimeout("/menu", 5000);
  */
-export function setTimeout(url, delayTime) {
+export function redirectPage(url, delayTime) {
   setTimeout(() => {
     window.location.href = url;
   }, delayTime);
