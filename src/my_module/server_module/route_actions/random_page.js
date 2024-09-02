@@ -19,7 +19,7 @@ function randomPage(res) {
 
   // 선택된 페이지의 HTML을 응답으로 전송
   // res.send(m.componentAssemble[selectedPage]);
-  res.send(m.componentAssemble.randomFinger);
+  res.send(m.componentAssemble.randomPrinciple);
 }
 
 module.exports = randomPage;
