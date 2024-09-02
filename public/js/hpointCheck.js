@@ -1,5 +1,6 @@
 import { createAndAppendImg } from "../js_module/createAppendImg.js";
 import { generateImgSrc } from "../js_module/generateImgSrc.js";
+import { redirectPage } from "../js_module/setTimeout.js";
 const root = document.getElementById("root");
 const textOne = document.getElementById("textOne");
 const textTwo = document.getElementById("textTwo");
@@ -29,6 +30,7 @@ if (title.includes("0")) {
   textOne.innerText = texts.positive[0];
   textTwo.innerText = texts.positive[1];
 }
-setTimeout(() => {
-  window.location.href = "/menu";
-}, 5000); // 5초 후에 실행
+// setTimeout(() => {
+//   window.location.href = "/menu";
+// }, 5000); // 5초 후에 실행
+redirectPage("/menu", 5000);

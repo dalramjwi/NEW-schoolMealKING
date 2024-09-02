@@ -40,30 +40,60 @@ menu.addEventListener("click", (event) => {
     updateMenu(7);
   });
 });
-// 메뉴 개수 체크 및 서버에 데이터 전송
-bLine.addEventListener("click", (event) => {
-  event.preventDefault();
-  // 선택된 메뉴 개수 확인
-  if (selectedMenus.length < 3) {
-    alert("메뉴를 3개 선택해야 합니다.");
-    return;
-  }
-  // 3개 이상 선택된 경우 서버로 데이터 전송
-  fetch("/cafe", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(selectedMenus),
+let maxSelectableMenus = 3; // 기본값
+
+// `/finger` 요청을 통해 메뉴 선택 제한을 확인
+fetch("/finger", {
+  method: "POST",
+})
+  .then((response) => {
+    if (response.ok) {
+      return response.json(); // JSON 응답을 파싱
+    } else {
+      throw new Error("finger 요청 실패");
+    }
   })
-    .then((response) => response.text())
-    .then((html) => {
-      document.open();
-      document.write(html);
-      document.close();
-    })
-    .catch((error) => {
-      console.error("서버와의 통신 오류:", error);
-      alert("서버와의 통신 오류가 발생했습니다.");
+  .then((data) => {
+    // `/finger` 요청이 성공했다면, 선택 가능 메뉴를 2개로 제한
+    if (data.message === "finger") {
+      console.log("finger 요청 성공");
+      maxSelectableMenus = 2;
+    } else {
+      // 이벤트가 "finger"가 아닌 경우 기본값 유지
+      maxSelectableMenus = 3;
+    }
+  })
+  .catch((error) => {
+    console.error("서버와의 통신 오류:", error);
+    // `fetch` 요청 실패 시 기본값 유지
+    maxSelectableMenus = 3;
+  })
+  .finally(() => {
+    // `fetch` 요청 성공 여부에 관계없이 `bLine` 클릭 이벤트 핸들러 등록
+    bLine.addEventListener("click", (event) => {
+      event.preventDefault();
+      // 선택된 메뉴 개수 확인
+      if (selectedMenus.length < maxSelectableMenus) {
+        alert(`메뉴를 ${maxSelectableMenus}개 선택해야 합니다.`);
+        return;
+      }
+      // 선택된 메뉴가 충분할 경우 서버로 데이터 전송
+      fetch("/cafe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(selectedMenus),
+      })
+        .then((response) => response.text())
+        .then((html) => {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch((error) => {
+          console.error("서버와의 통신 오류:", error);
+          alert("서버와의 통신 오류가 발생했습니다.");
+        });
     });
-});
+  });

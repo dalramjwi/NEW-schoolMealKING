@@ -27,20 +27,20 @@ const componentAssemble = {
     body.hpoinCheckBody +
     end.baseEnd("public/js/hpointCheck"),
   randomPrinciple:
-    top.baseTop("main", "public/css/main") +
+    top.baseTop("main", "public/css/randomPrinciple") +
     body.randomPrincipleBody +
-    end.baseEnd("public/js/main"),
+    end.baseEnd("public/js/random/principle"),
   randomFinger:
-    top.baseTop("main", "public/css/main") +
+    top.baseTop("main", "public/css/randomFinger") +
     body.randomFingerBody +
-    end.baseEnd("public/js/main"),
+    end.baseEnd("public/js/random/finger"),
   randomrefrigeator:
-    top.baseTop("main", "public/css/main") +
+    top.baseTop("main", "public/css/randomrefrige") +
     body.randombase +
-    end.baseEnd("public/js/main"),
+    end.baseEnd("public/js/random/refrige"),
   randomseasoning:
-    top.baseTop("main", "public/css/main") +
+    top.baseTop("main", "public/css/randomSeasoning") +
     body.randombaseBody +
-    end.baseEnd("public/js/main"),
+    end.baseEnd("public/js/random/seasoning"),
 };
 module.exports = componentAssemble;

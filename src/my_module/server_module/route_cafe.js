@@ -23,6 +23,10 @@ module.exports = function (db, result) {
     console.log("선택한 메뉴 : ", parsedData);
 
     try {
+      // 메뉴 개수가 부족한 경우 null로 채우기
+      while (parsedData.length < 3) {
+        parsedData.push(null); // null 대신 다른 기본값을 사용할 수 있음
+      }
       // 선택한 메뉴를 'active' 테이블에 저장함
       await insertDb(db, "active", parsedData[0], parsedData[1], parsedData[2]);
 
