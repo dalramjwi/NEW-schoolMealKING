@@ -46,7 +46,7 @@ fetch("/check-finger-event")
   .then((data) => {
     console.log("finger 이벤트 상태 데이터:", data);
     if (data.fingerEventOccurred) {
-      maxSelectableMenus = 2;
+      maxSelectableMenus = 2; // finger 이벤트 발생 시 메뉴 선택 제한을 2로 설정
       console.log("메뉴 선택 제한이 2로 설정되었습니다.");
     }
   })
@@ -55,14 +55,13 @@ fetch("/check-finger-event")
   });
 
 // 메뉴 선택 이벤트
-let selectedCount = 0; // 선택된 메뉴 개수 추적
 menu.addEventListener("click", (event) => {
+  const selectedCount = selectedMenus.length;
   if (selectedCount < maxSelectableMenus) {
     checkboxEvent(
       event,
       () => {
         updateMenu(7);
-        selectedCount++;
       },
       maxSelectableMenus
     );
