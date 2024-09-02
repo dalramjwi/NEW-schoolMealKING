@@ -34,17 +34,24 @@ app.use("/cafe", routeCafe(db, result));
 app.use("/cafeData", routeCafeData(db));
 app.use("/return", routeReturn(db));
 // 손가락 베임 이벤트 처리 엔드포인트
+let fingerEventOccurred = false; // 손가락 이벤트 상태 저장
+
 app.post("/finger", (req, res) => {
   const { event, effect } = req.body;
+  console.log("finger 이벤트 요청 수신:", event, effect);
 
-  // 요청 데이터에 따라 응답 처리
   if (event === "finger") {
+    fingerEventOccurred = true; // 이벤트 발생 시 상태 변경
     res.json({ success: true, message: "finger" });
   } else {
     res.json({ success: false, message: "unknown event" });
   }
 });
-
+// 클라이언트가 finger 이벤트 발생 여부를 확인하기 위한 엔드포인트
+app.get("/check-finger-event", (req, res) => {
+  console.log(fingerEventOccurred);
+  res.json({ fingerEventOccurred });
+});
 // 교장 선생님 이벤트 처리 엔드포인트
 app.post("/principle", (req, res) => {
   const { event, effect } = req.body;
