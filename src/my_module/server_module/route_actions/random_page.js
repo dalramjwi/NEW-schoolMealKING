@@ -4,7 +4,6 @@ const m = require("../../../module_assemble.js");
  * 랜덤 페이지 처리 (추가 로직 필요)
  * @param {Object} res - 응답 객체
  */
-const m = require("../../../module_assemble.js"); // require로 모듈을 불러옵니다.
 function randomPage(res) {
   // 랜덤으로 선택할 페이지 목록
   const pages = [
