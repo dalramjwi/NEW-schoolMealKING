@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.json())
         .then((data) => {
           console.log("Restarted:", data);
+          window.location.href = "/";
           // 모달 창 제거
           document.body.removeChild(modalDiv);
         })
