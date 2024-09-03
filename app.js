@@ -35,6 +35,9 @@ app.use("/cafeData", routeCafeData(db));
 app.use("/return", routeReturn(db));
 // 손가락 베임 이벤트 처리 엔드포인트
 let fingerEventOccurred = false; // 손가락 이벤트 상태 저장
+let principleEventOccurred = false; // 교장 선생님 이벤트 상태 저장
+let refrigeEventOccurred = false; // 냉장고 고장 이벤트 상태 저장
+let seasoningEventOccurred = false; // 조미료 발견 이벤트 상태 저장
 
 app.post("/finger", (req, res) => {
   const { event, effect } = req.body;
@@ -56,7 +59,10 @@ app.post("/principle", (req, res) => {
   const { event, effect } = req.body;
   console.log("교장 선생님 이벤트 - event:", event);
   console.log("교장 선생님 이벤트 - effect:", effect);
-
+  if (event === "principle") {
+    principleEventOccurred = true;
+    console.log("Principle Event:", principleEventOccurred);
+  }
   // 응답을 JSON으로 반환
   res.json({ message: "교장 선생님 이벤트 처리 완료" });
 });
@@ -66,7 +72,10 @@ app.post("/refrige", (req, res) => {
   const { event, effect } = req.body;
   console.log("냉장고 고장 이벤트 - event:", event);
   console.log("냉장고 고장 이벤트 - effect:", effect);
-
+  if (event === "refrige") {
+    refrigeEventOccurred = true;
+    console.log("Refrige Event:", refrigeEventOccurred);
+  }
   // 응답을 JSON으로 반환
   res.json({ message: "냉장고 고장 이벤트 처리 완료" });
 });
@@ -76,14 +85,52 @@ app.post("/seasoning", (req, res) => {
   const { event, effect } = req.body;
   console.log("조미료 발견 이벤트 - event:", event);
   console.log("조미료 발견 이벤트 - effect:", effect);
-
+  if (event === "seasoning") {
+    seasoningEventOccurred = true;
+    console.log("Seasoning Event:", seasoningEventOccurred);
+  }
   // 응답을 JSON으로 반환
   res.json({ message: "조미료 발견 이벤트 처리 완료" });
 });
+app.post("/end", (req, res) => {
+  // sum 테이블에서 모든 hpointAll과 ypointAll을 합산하여 hpointFinal과 ypointFinal을 계산
+  db.get(
+    "SELECT SUM(hpointAll) AS hpointFinal, SUM(ypointAll) AS ypointFinal FROM sum",
+    (err, row) => {
+      if (err) {
+        console.error("Database query error:", err);
+        return res.json({ success: false, message: "Database query error" });
+      }
 
-// 에러 처리 미들웨어
-app.use(function (err, req, res, next) {
-  res.send("에러 발생");
+      // hpointFinal과 ypointFinal의 초기값 설정
+      let hpointFinal = row.hpointFinal || 0;
+      let ypointFinal = row.ypointFinal || 0;
+
+      // 각 이벤트에 따라 포인트를 조정
+      if (principleEventOccurred) {
+        console.log("Principle Event 처리 중...");
+        ypointFinal += 3; // ypointFinal에 +3
+      }
+
+      if (refrigeEventOccurred) {
+        console.log("Refrige Event 처리 중...");
+        hpointFinal -= 3; // hpointFinal에 -3
+      }
+
+      if (seasoningEventOccurred) {
+        console.log("Seasoning Event 처리 중...");
+        hpointFinal += 3; // hpointFinal에 +3
+      }
+
+      // 최종 결과를 클라이언트에 반환
+      res.json({
+        success: true,
+        hpointFinal: hpointFinal,
+        ypointFinal: ypointFinal,
+        message: "점수 계산 완료",
+      });
+    }
+  );
 });
 
 // 서버 시작
