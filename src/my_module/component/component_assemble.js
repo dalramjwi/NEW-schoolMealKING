@@ -42,5 +42,9 @@ const componentAssemble = {
     top.baseTop("main", "public/css/randomSeasoning") +
     body.randombaseBody +
     end.baseEnd("public/js/random/seasoning"),
+  end:
+    top.baseTop("main", "public/css/end") +
+    body.randomPrincipleBody +
+    end.baseEnd("public/js/end"),
 };
 module.exports = componentAssemble;
