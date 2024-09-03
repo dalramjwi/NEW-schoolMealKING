@@ -31,6 +31,6 @@ fetch("/principle", {
   },
   body: JSON.stringify({
     event: "principle",
-    effect: "HpointRestrict", // 예: 특정 음식을 금지하는 효과
+    effect: "YpointIncrease",
   }),
 });
