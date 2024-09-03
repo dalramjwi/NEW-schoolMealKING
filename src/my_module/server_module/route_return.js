@@ -35,6 +35,8 @@ module.exports = function (db) {
       case "randomPage":
         randomPage(res);
         break;
+      case "end":
+        end(res);
       default:
         invalidKey(res);
         break;
