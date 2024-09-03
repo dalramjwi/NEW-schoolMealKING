@@ -33,4 +33,7 @@ fetch("/principle", {
     event: "principle",
     effect: "YpointIncrease",
   }),
-});
+})
+  .then((response) => response.json())
+  .then((data) => console.log("서버 응답:", data))
+  .catch((error) => console.error("서버 요청 중 에러 발생:", error));
