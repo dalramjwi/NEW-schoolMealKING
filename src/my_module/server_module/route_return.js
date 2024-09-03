@@ -9,6 +9,7 @@ const repeatToMenu = require("./route_actions/repeat_to_menu.js");
 const hpointCheck = require("./route_actions/hpoint_check.js");
 const randomPage = require("./route_actions/random_page.js");
 const invalidKey = require("./route_actions/invalidkey.js");
+const endPage = require("./route_actions/end.js");
 
 module.exports = function (db) {
   const router = express.Router();
@@ -36,7 +37,8 @@ module.exports = function (db) {
         randomPage(res);
         break;
       case "end":
-        end(res);
+        console.log("end로 옴");
+        endPage(res);
       default:
         invalidKey(res);
         break;
