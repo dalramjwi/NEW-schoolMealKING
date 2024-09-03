@@ -36,7 +36,7 @@ const componentAssemble = {
     end.baseEnd("public/js/random/finger"),
   randomrefrigeator:
     top.baseTop("main", "public/css/randomrefrige") +
-    body.randombase +
+    body.randombaseBody +
     end.baseEnd("public/js/random/refrige"),
   randomseasoning:
     top.baseTop("main", "public/css/randomSeasoning") +
@@ -48,3 +48,4 @@ const componentAssemble = {
     end.baseEnd("public/js/end"),
 };
 module.exports = componentAssemble;
+console.log(componentAssemble.randomrefrigeator);
