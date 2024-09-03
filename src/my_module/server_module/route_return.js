@@ -39,6 +39,7 @@ module.exports = function (db) {
       case "end":
         console.log("end로 옴");
         endPage(res);
+        break;
       default:
         invalidKey(res);
         break;
