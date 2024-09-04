@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 #root {
   margin: 0;
   display: flex;
@@ -10,17 +13,15 @@
   width: 100vw;
   height: 2vh;
 }
-#letter {
-  width: 80vw;
-  height: 60vh;
-  background-color: darkgrey;
-}
+
 #graph {
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 0.5vw;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 #day {
   display: grid;
@@ -40,10 +41,30 @@
 #양식,
 #후식 {
   text-align: center;
+  font-weight: bold;
 }
 #menu > label {
   padding-left: 6vw;
 }
 #day {
   text-align: center;
+}
+button {
+  padding: 1vw 1.25vw;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+#bLine {
+  margin-top: 0.5vw;
 }
