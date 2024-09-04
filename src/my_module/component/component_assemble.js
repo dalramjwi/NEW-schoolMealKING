@@ -7,7 +7,7 @@ const componentAssemble = {
     body.mainBody +
     end.baseEnd("public/js/main"),
   menu:
-    top.baseTop("menu1", "public/css/menu") +
+    top.baseTop(`menu${1}`, "public/css/menu") +
     body.menuBody +
     end.baseEnd("public/js/menu"),
   cafe0:
