@@ -56,18 +56,36 @@ fetch("/check-finger-event")
 
 // 메뉴 선택 이벤트
 menu.addEventListener("click", (event) => {
-  const selectedCount = selectedMenus.length;
-  if (selectedCount < maxSelectableMenus) {
-    checkboxEvent(
-      event,
-      () => {
-        updateMenu(7);
-      },
-      maxSelectableMenus
-    );
-  } else {
-    alert("선택 가능한 메뉴는 최대 " + maxSelectableMenus + "개입니다.");
-    event.preventDefault();
+  const target = event.target;
+  // 클릭한 요소가 체크박스일 경우에만 처리
+  if (target.tagName === "INPUT" && target.type === "checkbox") {
+    const isChecked = target.checked; // 체크 상태 확인
+    const selectedCount = selectedMenus.length;
+
+    if (isChecked) {
+      // 체크박스를 체크하려는 경우
+      if (selectedCount < maxSelectableMenus) {
+        checkboxEvent(
+          event,
+          () => {
+            updateMenu(7);
+          },
+          maxSelectableMenus
+        );
+      } else {
+        alert("선택 가능한 메뉴는 최대 " + maxSelectableMenus + "개입니다.");
+        event.preventDefault(); // 체크박스 체크 동작 취소
+      }
+    } else {
+      // 체크박스를 해제하려는 경우
+      checkboxEvent(
+        event,
+        () => {
+          updateMenu(7);
+        },
+        maxSelectableMenus
+      );
+    }
   }
 });
 
