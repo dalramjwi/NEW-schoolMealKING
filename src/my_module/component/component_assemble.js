@@ -1,6 +1,12 @@
 const top = require("../basic_module/literalParts/top");
 const end = require("../basic_module/literalParts/end");
 const body = require("./bodyMaker");
+const database = require("sqlite3").verbose();
+const db = new database.Database(`../../../database/school.db`, (err) => {
+  if (err) {
+    console.log("에러 발생 : ", err.message);
+  }
+});
 const componentAssemble = {
   main:
     top.baseTop("main", "public/css/main") +
@@ -47,5 +53,22 @@ const componentAssemble = {
     body.randomPrincipleBody +
     end.baseEnd("public/js/end"),
 };
+
+// sum 테이블에서 행 수 가져오기
+db.get("SELECT COUNT(*) AS rowCount FROM sum", (err, row) => {
+  if (err) {
+    console.error(err.message);
+    return;
+  }
+
+  // 행 수에 따라 menu 업데이트
+  const rowCount = row.rowCount;
+  componentAssemble.menu =
+    top.baseTop(`menu${rowCount}`, "public/css/menu") +
+    body.menuBody +
+    end.baseEnd("public/js/menu");
+
+  // 동적으로 변경된 componentAssemble 객체를 여기서 사용 가능
+  console.log(componentAssemble.menu);
+});
 module.exports = componentAssemble;
-console.log(componentAssemble.randomrefrigeator);
