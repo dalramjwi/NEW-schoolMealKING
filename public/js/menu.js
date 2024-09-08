@@ -114,6 +114,8 @@ bLine.addEventListener("click", (event) => {
       alert("서버와의 통신 오류가 발생했습니다.");
     });
 });
+// 이전 선택지 저장을 위한 구조
+let previousSelections = [];
 // 서버에서 데이터 가져오기
 async function fetchMenuData() {
   try {
@@ -122,13 +124,18 @@ async function fetchMenuData() {
 
     if (data.success) {
       const { rowsCount, menus } = data;
-      // 배열 내용을 업데이트
-      selectedMenus.length = 0; // 기존 내용을 비우기
-      selectedfMenus.push(...menus); // 새로운 메뉴 데이터 추가
-      console.log(selectedMenus);
-      // rowsCount에 따라서 updateMenu 인수 조정
-      const updateCol = 7 - (rowsCount - 1);
-      updateMenu(updateCol);
+      // 이전 선택지 업데이트
+      previousSelections = [...menus]; // 새로운 메뉴 데이터 추가
+      console.log(previousSelections);
+
+      // title 값 확인
+      const title = document.title;
+      const titleNum = parseInt(title.replace(/\D/g, ""));
+
+      if (titleNum >= 2) {
+        // title 값이 2 이상일 때만 expressMenu 실행
+        expressMenu(titleNum);
+      }
     } else {
       console.error("Failed to fetch menu data:", data.message);
     }
@@ -136,4 +143,25 @@ async function fetchMenuData() {
     console.error("Error fetching menu data:", error);
   }
 }
+
+// 페이지 로드 시 데이터 가져오기
 fetchMenuData();
+
+// 이전 기록을 화면에 표시하는 함수
+function expressMenu(titleNum) {
+  const divs = [];
+  const baseId = titleNum + 6; // base ID 설정
+
+  // 이전 기록의 개수만큼 반복
+  for (let i = 0; i < previousSelections.length; i++) {
+    // base ID에서 i를 더해 7의 배수로 설정
+    const divId = baseId + i * 7;
+    console.log(divId); // 디버깅을 위한 로그
+    const div = document.getElementById(divId);
+    if (div) {
+      div.innerHTML = previousSelections[i] || "";
+      divs.push(divId);
+    }
+  }
+  console.log("Express Menu updated for IDs:", divs);
+}
