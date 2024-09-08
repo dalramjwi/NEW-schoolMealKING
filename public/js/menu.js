@@ -114,3 +114,26 @@ bLine.addEventListener("click", (event) => {
       alert("서버와의 통신 오류가 발생했습니다.");
     });
 });
+// 서버에서 데이터 가져오기
+async function fetchMenuData() {
+  try {
+    const response = await fetch("/menuData");
+    const data = await response.json();
+
+    if (data.success) {
+      const { rowsCount, menus } = data;
+      // 배열 내용을 업데이트
+      selectedMenus.length = 0; // 기존 내용을 비우기
+      selectedfMenus.push(...menus); // 새로운 메뉴 데이터 추가
+      console.log(selectedMenus);
+      // rowsCount에 따라서 updateMenu 인수 조정
+      const updateCol = 7 - (rowsCount - 1);
+      updateMenu(updateCol);
+    } else {
+      console.error("Failed to fetch menu data:", data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching menu data:", error);
+  }
+}
+fetchMenuData();

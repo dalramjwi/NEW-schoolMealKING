@@ -164,5 +164,24 @@ app.post("/restart", (req, res) => {
     });
   });
 });
+// 클라이언트가 메뉴 데이터를 요청하기 위한 엔드포인트
+app.get("/menuData", (req, res) => {
+  db.all(`SELECT * FROM active`, (err, rows) => {
+    if (err) {
+      console.error("데이터 조회 오류:", err.message);
+      return res.json({ success: false, message: "데이터 조회 오류" });
+    }
+
+    const rowsCount = rows.length;
+    const menus = rows.flatMap((row) => [
+      row.nameOne,
+      row.nameTwo,
+      row.nameThree,
+    ]);
+    console.log(menus);
+    res.json({ success: true, rowsCount, menus });
+  });
+});
+
 // 서버 시작
 app.listen(port, () => console.log(`http://localhost:${port}`));
