@@ -26,10 +26,10 @@ work();
 
 app.use("/public", express.static("public"));
 app.use(express.json());
-
+1;
 // 라우터 설정
 app.use("/", routeMain(db));
-app.use("/menu", routeMenu);
+app.use("/menu", routeMenu(db));
 app.use("/cafe", routeCafe(db, result));
 app.use("/cafeData", routeCafeData(db));
 app.use("/return", routeReturn(db));
