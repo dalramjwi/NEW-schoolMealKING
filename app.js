@@ -178,7 +178,6 @@ app.get("/menuData", (req, res) => {
       row.nameTwo,
       row.nameThree,
     ]);
-    console.log(menus);
     res.json({ success: true, rowsCount, menus });
   });
 });
