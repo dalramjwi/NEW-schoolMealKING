@@ -151,15 +151,16 @@ fetchMenuData();
 function expressMenu(titleNum) {
   const divs = [];
   const baseId = titleNum + 6; // base ID 설정
-
+  const startIndex = (titleNum - 2) * 3;
   // 이전 기록의 개수만큼 반복
   for (let i = 0; i < previousSelections.length; i++) {
     // base ID에서 i를 더해 7의 배수로 설정
+    const index = startIndex + i;
     const divId = baseId + i * 7;
     console.log(divId); // 디버깅을 위한 로그
     const div = document.getElementById(divId);
     if (div) {
-      div.innerHTML = previousSelections[i] || "";
+      div.innerHTML = previousSelections[index] || "";
       divs.push(divId);
     }
   }
