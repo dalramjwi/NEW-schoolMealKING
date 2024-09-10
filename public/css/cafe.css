@@ -71,21 +71,21 @@
 }
 #mealThree > img {
   position: absolute;
-  top: 26vh;
+  top: 26.25vh;
   right: -1.5vw;
   z-index: 5;
   width: 6vh;
 }
 #mealFour > img {
   position: absolute;
-  top: 26vh;
+  top: 26.25vh;
   right: 5.5vw;
   z-index: 5;
   width: 6vh;
 }
 #mealFive > img {
   position: absolute;
-  top: 26vh;
+  top: 26.25vh;
   right: -8vw;
   z-index: 5;
   width: 6vh;
