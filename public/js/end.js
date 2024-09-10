@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     modalDiv.appendChild(modalMessage);
 
     const yesBtn = document.createElement("button");
-    yesBtn.innerText = "예";
+    yesBtn.innerText = "YES";
     modalDiv.appendChild(yesBtn);
 
     const noBtn = document.createElement("button");
-    noBtn.innerText = "아니오";
-    noBtn.style.marginLeft = "10px";
+    noBtn.innerText = "N O";
+    noBtn.style.marginLeft = "1vw";
     modalDiv.appendChild(noBtn);
 
     document.body.appendChild(modalDiv);
