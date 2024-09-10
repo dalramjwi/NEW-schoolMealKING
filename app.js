@@ -133,37 +133,5 @@ app.post("/end", (req, res) => {
     }
   );
 });
-app.post("/restart", (req, res) => {
-  // 데이터베이스 연결이 열린 상태에서 테이블의 데이터 삭제
-  db.serialize(() => {
-    db.run("DELETE FROM active", (err) => {
-      if (err) {
-        console.error("Error deleting data from active table:", err);
-        return res.json({
-          success: false,
-          message: "Failed to delete data from active table",
-        });
-      }
-      console.log("Data deleted from active table");
-    });
-
-    db.run("DELETE FROM sum", (err) => {
-      if (err) {
-        console.error("Error deleting data from sum table:", err);
-        return res.json({
-          success: false,
-          message: "Failed to delete data from sum table",
-        });
-      }
-      console.log("Data deleted from sum table");
-
-      // 모든 작업이 완료되었을 때 성공 응답을 보냅니다.
-      res.json({
-        success: true,
-        message: "Data deleted from active and sum tables successfully",
-      });
-    });
-  });
-});
 
 app.listen(port, () => console.log(`http://localhost:${port}`));
