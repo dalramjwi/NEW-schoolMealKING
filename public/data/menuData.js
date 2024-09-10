@@ -6,7 +6,7 @@ export const menuData = {
    */
   date: (col, month) => {
     const date = [""];
-    for (let i = 1; i < col; i++) {
+    for (let i = 1; i < col - 1; i++) {
       date.push(`${month}.${i}`);
     }
     return date;
