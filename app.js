@@ -6,6 +6,7 @@ const routeCafe = require("./src/my_module/server_module/route_cafe.js");
 const routeCafeData = require("./src/my_module/server_module/route_cafeData.js");
 const routeReturn = require("./src/my_module/server_module/route_return.js");
 const work = require("./database.js");
+const routeMenuData = require("./src/my_module/server_module/route_menuData.js");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,6 +37,7 @@ app.use("/menu", routeMenu(db));
 app.use("/cafe", routeCafe(db, result));
 app.use("/cafeData", routeCafeData(db));
 app.use("/return", routeReturn(db));
+app.use("/menuData", routeMenuData(db));
 app.post("/finger", (req, res) => {
   const { event, effect } = req.body;
   console.log("finger 이벤트 요청 수신:", event, effect);
@@ -162,22 +164,22 @@ app.post("/restart", (req, res) => {
   });
 });
 // 클라이언트가 메뉴 데이터를 요청하기 위한 엔드포인트
-app.get("/menuData", (req, res) => {
-  db.all(`SELECT * FROM active`, (err, rows) => {
-    if (err) {
-      console.error("데이터 조회 오류:", err.message);
-      return res.json({ success: false, message: "데이터 조회 오류" });
-    }
+// app.get("/menuData", (req, res) => {
+//   db.all(`SELECT * FROM active`, (err, rows) => {
+//     if (err) {
+//       console.error("데이터 조회 오류:", err.message);
+//       return res.json({ success: false, message: "데이터 조회 오류" });
+//     }
 
-    const rowsCount = rows.length;
-    const menus = rows.flatMap((row) => [
-      row.nameOne,
-      row.nameTwo,
-      row.nameThree,
-    ]);
-    res.json({ success: true, rowsCount, menus });
-  });
-});
+//     const rowsCount = rows.length;
+//     const menus = rows.flatMap((row) => [
+//       row.nameOne,
+//       row.nameTwo,
+//       row.nameThree,
+//     ]);
+//     res.json({ success: true, rowsCount, menus });
+//   });
+// });
 
 // 서버 시작
 app.listen(port, () => console.log(`http://localhost:${port}`));
