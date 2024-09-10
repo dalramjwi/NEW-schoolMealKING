@@ -9,9 +9,38 @@ body {
   background-image: url(../img/end.png);
   background-size: cover; /* 이미지가 컨테이너를 채우도록 */
   background-position: center; /* 이미지 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
 }
 #message {
   background-color: gray;
   width: 50vw;
-  height: 25vh;
+  height: 30vh;
+  border-radius: 0.5vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 5vw 2vw 5vw 2vw;
+  line-height: 6.5vh;
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+button {
+  padding: 1vw 1.25vw;
+  background-color: #d7e057;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #548a5788;
+}
+
+button:active {
+  background-color: #8cdb8e;
 }
