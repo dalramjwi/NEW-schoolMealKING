@@ -13,11 +13,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-#message {
+/* #message {
   background-color: gray;
   width: 50vw;
   height: 25vh;
   position: absolute;
   top: 18vh;
+} */
+#message {
+  background-color: #f0fbf9c2;
+  width: 33vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 2vw 1vw;
+  line-height: 9.5vh;
+  font-size: 1.25rem;
+  top: 22vh;
+  position: absolute;
 }
