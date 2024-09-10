@@ -1,6 +1,7 @@
 import { redirectPage } from "../../js_module/setTimeout.js";
 redirectPage("/menu", 5000);
-
+const message = document.getElementById("message");
+message.innerText = "내일 교장선생님께서 급식실에서 점심을 드신다고 합니다.";
 setTimeout(() => {
   // 새로운 div 요소 생성
   const messageDiv = document.createElement("div");
@@ -19,7 +20,7 @@ setTimeout(() => {
   messageDiv.style.transform = "translate(-50%, -50%)";
   messageDiv.style.backgroundColor = "#f8d7da";
   messageDiv.style.color = "#721c24";
-  messageDiv.style.padding = "20px";
+  messageDiv.style.padding = "3vw";
   messageDiv.style.borderRadius = "5px";
   messageDiv.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.1)";
 }, 2000);
