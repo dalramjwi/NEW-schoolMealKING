@@ -80,7 +80,7 @@ body {
 }
 button {
   padding: 1vw 1.25vw;
-  background-color: #4caf50;
+  background-color: #d7e057;
   border: none;
   border-radius: 0.5vw;
   cursor: pointer;
@@ -88,9 +88,9 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #548a5788;
 }
 
 button:active {
-  background-color: #3e8e41;
+  background-color: #8cdb8e;
 }
