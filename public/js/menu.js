@@ -150,17 +150,24 @@ fetchMenuData();
 // 이전 기록을 화면에 표시하는 함수
 function expressMenu(titleNum) {
   const divs = [];
-  const baseId = titleNum + 6; // base ID 설정
-  const startIndex = (titleNum - 2) * 3;
+  const baseId = 8; // 처음 시작하는 ID는 8부터 시작
+  const columns = 3; // 각 열에 3개의 메뉴가 세로로 저장되도록 설정
+  const columnSpacing = 7; // 각 열의 간격을 7로 설정
+
+  console.log("Title Num:", titleNum);
+
   // 이전 기록의 개수만큼 반복
   for (let i = 0; i < previousSelections.length; i++) {
-    // base ID에서 i를 더해 7의 배수로 설정
-    const index = startIndex + i;
-    const divId = baseId + i * 7;
-    console.log(divId); // 디버깅을 위한 로그
+    const col = i % columns; // 각 열(column)에서 위치 계산
+    const row = Math.floor(i / columns); // 세로로 나누기 위한 행 계산
+
+    // i 값에 따라 첫 번째 값은 8,15,22, 두 번째 값은 9,16,23... 형식으로 divId 계산
+    const divId = baseId + col * columnSpacing + row;
+
+    console.log("Div ID:", divId); // 디버깅용 로그
     const div = document.getElementById(divId);
     if (div) {
-      div.innerHTML = previousSelections[index] || "";
+      div.innerHTML = previousSelections[i] || "";
       divs.push(divId);
     }
   }
