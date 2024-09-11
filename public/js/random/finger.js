@@ -14,6 +14,7 @@ setTimeout(() => {
 
   // div 스타일링 (선택 사항)
   messageDiv.style.position = "fixed";
+  messageDiv.style.zIndex = "2";
   messageDiv.style.top = "50%";
   messageDiv.style.left = "50%";
   messageDiv.style.transform = "translate(-50%, -50%)";

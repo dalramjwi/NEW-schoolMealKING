@@ -23,7 +23,7 @@ body {
   background-image: url(../img/cooker.png);
   width: 20vw;
   height: 41vh;
-  z-index: 500;
+  z-index: 1;
   position: absolute;
   top: 27vh;
   left: 41vw;
