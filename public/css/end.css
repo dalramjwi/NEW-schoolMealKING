@@ -16,7 +16,7 @@ body {
   gap: 1.5vw;
 }
 #message {
-  background-color: gray;
+  background-color: #f0fbf9c2;
   width: 50vw;
   height: 30vh;
   border-radius: 0.5vw;
