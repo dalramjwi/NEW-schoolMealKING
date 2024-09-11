@@ -1,5 +1,5 @@
 const express = require("express");
-const eventState = require("./eventState.js");
+const { eventState } = require("./eventState.js");
 module.exports = function () {
   const router = express.Router();
 
@@ -10,14 +10,11 @@ module.exports = function () {
 
     if (event === "finger") {
       eventState.fingerEventOccurred = true; // 이벤트 발생 시 상태 변경
+      console.log(eventState.fingerEventOccurred);
       res.json({ success: true, message: "finger" });
     } else {
       res.json({ success: false, message: "unknown event" });
     }
-  });
-
-  router.get("/check-finger-event", (req, res) => {
-    res.json({ fingerEventOccurred: eventState.fingerEventOccurred });
   });
 
   return router;
