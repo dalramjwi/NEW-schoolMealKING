@@ -1,5 +1,5 @@
 const express = require("express");
-const eventState = require("./eventState.js");
+const { eventState } = require("./eventState.js");
 
 module.exports = function () {
   const router = express.Router();
