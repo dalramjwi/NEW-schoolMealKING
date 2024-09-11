@@ -18,7 +18,7 @@ setTimeout(() => {
   messageDiv.style.transform = "translate(-50%, -50%)";
   messageDiv.style.backgroundColor = "#f8d7da";
   messageDiv.style.color = "#721c24";
-  messageDiv.style.padding = "10vw";
+  messageDiv.style.padding = "3vw";
   messageDiv.style.borderRadius = "5px";
   messageDiv.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.1)";
 }, 2000);
