@@ -18,8 +18,8 @@ function randomPage(res) {
   const selectedPage = pages[randomIndex];
 
   // 선택된 페이지의 HTML을 응답으로 전송
-  // res.send(m.componentAssemble[selectedPage]);
-  res.send(m.componentAssemble.randomFinger);
+  res.send(m.componentAssemble[selectedPage]);
+  // res.send(m.componentAssemble.randomFinger);
 }
 
 module.exports = randomPage;
