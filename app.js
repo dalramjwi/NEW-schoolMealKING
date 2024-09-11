@@ -13,6 +13,7 @@ const route_principle = require("./src/my_module/server_module/route_principle.j
 const route_refrige = require("./src/my_module/server_module/route_refrige.js");
 const route_seasoning = require("./src/my_module/server_module/route_seasoning.js");
 const route_end = require("./src/my_module/server_module/route_end.js");
+const route_check_finger_event = require("./src/my_module/server_module/route_check_finger_event.js");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -41,6 +42,7 @@ app.use("/return", routeReturn(db));
 app.use("/menuData", routeMenuData(db));
 app.use("/restart", routeRestart(db));
 app.use("/finger", routeFinger());
+app.use("/check-finger-event", route_check_finger_event());
 app.use("/principle", route_principle());
 app.use("/refrige", route_refrige());
 app.use("/seasoning", route_seasoning());
