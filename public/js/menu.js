@@ -53,6 +53,7 @@ fetch("/check-finger-event")
   .catch((error) => {
     console.error("서버와의 통신 오류:", error);
   });
+console.log(maxSelectableMenus);
 
 // 메뉴 선택 이벤트
 menu.addEventListener("click", (event) => {
@@ -96,6 +97,12 @@ bLine.addEventListener("click", (event) => {
     alert(`메뉴를 ${maxSelectableMenus}개 선택해야 합니다.`);
     return;
   }
+  console.log(maxSelectableMenus);
+  if (maxSelectableMenus == 2) {
+    maxSelectableMenus = 3;
+    console.log(maxSelectableMenus);
+  }
+  console.log(maxSelectableMenus);
   fetch("/cafe", {
     method: "POST",
     headers: {
@@ -127,6 +134,9 @@ async function fetchMenuData() {
       // 이전 선택지 업데이트
       previousSelections = [...menus]; // 새로운 메뉴 데이터 추가
       console.log(previousSelections);
+      // if (rowsCount >= 0) {
+      //   maxSelectableMenus = 3;
+      // }
 
       // title 값 확인
       const title = document.title;
