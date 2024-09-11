@@ -1,13 +1,14 @@
 const express = require("express");
-const eventState = require("./eventState.js");
+const { eventState } = require("./eventState.js");
 module.exports = function () {
   const router = express.Router();
 
   router.get("/", (req, res) => {
-    console.log(eventState.fingerEventOccurred);
+    res.setHeader("Cache-Control", "no-store");
+    console.log("checkfingerevent", eventState);
     res.json({ fingerEventOccurred: eventState.fingerEventOccurred });
+    console.log("checkfingerevent2", eventState);
   });
-  console.log(eventState.fingerEventOccurred);
 
   return router;
 };
