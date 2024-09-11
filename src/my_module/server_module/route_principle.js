@@ -1,8 +1,8 @@
 const express = require("express");
+const eventState = require("./eventState.js");
 
 module.exports = function () {
   const router = express.Router();
-  let principleEventOccurred = false;
 
   router.post("/", (req, res) => {
     const { event, effect } = req.body;
@@ -10,8 +10,8 @@ module.exports = function () {
     console.log("교장 선생님 이벤트 - effect:", effect);
 
     if (event === "principle") {
-      principleEventOccurred = true;
-      console.log("Principle Event:", principleEventOccurred);
+      eventState.principleEventOccurred = true;
+      console.log("Principle Event:", eventState.principleEventOccurred);
     }
 
     res.json({ message: "교장 선생님 이벤트 처리 완료" });
